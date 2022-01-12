@@ -1,10 +1,11 @@
+import Creatures.EnemyCreature;
 class Sub {
 
   private String name;
   private int health;
   private int speed;
   private int maxSpeed;
-  private String destination;
+  private String direction;
   private int xPos;
   private int yPos;
   private int maxDepth;
@@ -26,15 +27,18 @@ class Sub {
     target.takeHit(attackDmg);
   }
 
-  private void changeDestination(String newDest) {
-    this.destination = newDest;
+  private void changeDirection(String newDir) {
+    this.direction = newDir;
+    // convert input into a number in userinput that
+    // corresponds to a direction: 1 up, 2 up right, 3 right, etc
+    // so this doesn't have to deal with weird inputs
   }
 
   private void changeSpeed(int newSpeed) {
-    if (newSpeed <= this.maxSpeed) {
-      this.speed = newSpeed;
-    } else if (newSpeed < 0) {
+    if (newSpeed < 0) {
       this.speed = 0;
+    } else if (newSpeed <= this.maxSpeed) {
+      this.speed = newSpeed;
     } else {
       this.speed = maxSpeed;
     }

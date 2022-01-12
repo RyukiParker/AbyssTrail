@@ -1,4 +1,4 @@
-class AllyCreature {
+public class AllyCreature {
 
   private String species;
   private String name;

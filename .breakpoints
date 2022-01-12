@@ -1,0 +1,20 @@
+{
+  "files": {
+    "Creatures/AllyCreature.java": [
+      {
+        "id": "cf6ebf5d-744c-422c-a030-e4911c1145d2",
+        "line": 1,
+        "version": 25,
+        "index": 0
+      }
+    ],
+    "UserInput.java": [
+      {
+        "id": "e42c227d-e6df-42d1-8cb5-a6b8e05b79d4",
+        "line": 11,
+        "version": 238,
+        "index": 127
+      }
+    ]
+  }
+}

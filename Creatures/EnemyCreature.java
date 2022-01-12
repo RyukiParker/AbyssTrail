@@ -1,4 +1,4 @@
-class EnemyCreature {
+public class EnemyCreature {
 
   private String species;
   private int health;
