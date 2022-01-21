@@ -1,3 +1,4 @@
+package Creatures;
 public class AllyCreature {
 
   private String species;

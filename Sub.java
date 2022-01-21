@@ -12,8 +12,17 @@ class Sub {
   private int attackDmg;
   // Stowage/inventory
 
-  Sub() {
-    
+  Sub(String name, int subType) {
+    this.name = name;
+
+    // Create base stats for each subtype
+    if (subType == 1) {
+
+    } else if (subType == 2) {
+
+    } else {
+      
+    }
   }
 
   public void takeHit(int dmg) {
@@ -46,5 +55,11 @@ class Sub {
 
   private void repairSub() {
 
+  }
+
+  // Gets
+
+  public String getName() {
+    return this.name;
   }
 }

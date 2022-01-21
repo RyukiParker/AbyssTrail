@@ -2,17 +2,34 @@ import java.util.Scanner;
 
 class UserInput {
 
-  Scanner scanner;
-
   UserInput() {
-    scanner = new Scanner(System.in);
   }
 
-  public void read() {
-    
+  // This might work, whatever class requests it will get just the text
+  public String readString() {
+    Scanner sc = new Scanner(System.in);
+    return sc.nextLine();
   }
 
-  // might need speicifc ones for different times
-  // names vs movement vs inventory
-  // don't want sub randomly moving if you decide to name something the letter U
+  public int readInt() {
+    Scanner sc = new Scanner(System.in);
+    return sc.nextInt();
+  }
+
+  public int askSubType() {
+    Scanner sc = new Scanner(System.in);
+    System.out.print("Choose preferred sub type \n1 - Attack: High attack, low health, medium speed\n2 - Health: Low attack, high health, medium speed\n3 - Speed: Medium attack, medium health, High speed\nType: ");
+    int subType = sc.nextInt();
+    while (subType < 1 || subType > 3) {
+      System.out.print("Choose a valid sub type (1, 2, 3): ");
+      subType = sc.nextInt();
+    }
+    return subType;
+  }
+
+  // make others when needed for specific inputs
+  // ie readNum, if not a number, re-ask for input
+  // OR
+  // add methods for checking what the user entered and what it should be
+  // checkCommand, checkName, etc.
 }

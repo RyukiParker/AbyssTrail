@@ -1,3 +1,4 @@
+package Creatures;
 public class EnemyCreature {
 
   private String species;
