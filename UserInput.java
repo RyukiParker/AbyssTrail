@@ -3,6 +3,7 @@ import java.util.Scanner;
 class UserInput {
 
   UserInput() {
+    
   }
 
   // This might work, whatever class requests it will get just the text
@@ -25,6 +26,64 @@ class UserInput {
       subType = sc.nextInt();
     }
     return subType;
+  }
+
+  // experimenting, this might be horrible
+
+  public void travelingInput(Sub sub) {
+    // corresponds to TurnOption traveling options
+    Scanner sc = new Scanner(System.in);
+    System.out.print("Choose option: ");
+    int optNum = sc.nextInt();
+
+    switch (optNum) {
+      case 1: System.out.println("\nCurrent speed: " + sub.getSpeed());
+              System.out.print("Enter new speed: ");
+              int newSpeed = sc.nextInt();
+              sub.changeSpeed(newSpeed);
+              System.out.println("Set sub speed to " + sub.getSpeed());
+              break;
+      case 2: System.out.println("changing dir...");
+              break;
+      case 3: System.out.println("viewing inv...");
+              break;
+      case 4: System.out.println("docking at fort...");
+              break;
+      case 5: System.out.println("repairing sub...");
+              break;
+      case 6: System.out.println("continuing on...");
+              break;
+      case 7: sub.showStats();
+              break;
+    }
+  }
+
+  public void battleInput(Sub sub) {
+    Scanner sc = new Scanner(System.in);
+    System.out.print("Choose option: ");
+    int optNum = sc.nextInt();
+    switch (optNum) {
+      case 1: System.out.println();
+              break;
+      case 2: System.out.println();
+              break;
+      case 3: System.out.println();
+              break;
+    }
+  }
+
+  public void dockedInput(Sub sub) {
+    Scanner sc = new Scanner(System.in);
+    System.out.print("Choose option: ");
+    int optNum = sc.nextInt();
+    switch (optNum) {
+      case 1: System.out.println();
+              break;
+      case 2: System.out.println();
+              break;
+      case 3: System.out.println();
+              break;
+    }
   }
 
   // make others when needed for specific inputs
