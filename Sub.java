@@ -3,6 +3,7 @@ class Sub {
 
   private String name;
   private int health;
+  private int maxHealth;
   private int speed;
   private int maxSpeed;
   private int direction;
@@ -24,16 +25,19 @@ class Sub {
     if (subType == 1) {
       // Attack
       this.health = 75;
+      this.maxHealth = 75;
       this.maxSpeed = 100;
       this.attackDmg = 150;
     } else if (subType == 2) {
       // Health
       this.health = 250;
+      this.maxHealth = 250;
       this.maxSpeed = 100;
       this.attackDmg = 30;
     } else {
       // Speed
       this.health = 150;
+      this.maxHealth = 150;
       this.maxSpeed = 200;
       this.attackDmg = 70;
     }
@@ -84,11 +88,23 @@ class Sub {
     return this.speed;
   }
 
-  public void showStats() {
-    System.out.println("\n" + this.name +"'s Sub Stats");
-    System.out.println("Health: " + this.health);
-    System.out.println("Max Speed: " + this.maxSpeed);
+  public int getHealth() {
+    return this.health;
+  }
+
+  public int getMaxHealth() {
+    return this.maxHealth;
+  }
+
+  public int getDirection() {
+    return this.direction;
+  }
+
+  public void showStatus() {
+    System.out.println("\n" + this.name +"'s Sub Status");
+    System.out.println("Health: " + this.health + " / " + this.maxHealth);
+    System.out.println("Speed: " + this.speed + " / " + this.maxSpeed);
     System.out.println("Attack Damage: " + this.attackDmg);
-    System.out.println("Max Depth: " + this.maxDepth);
+    System.out.println("Depth: " + this.yPos + " / " + this.maxDepth);
   }
 }

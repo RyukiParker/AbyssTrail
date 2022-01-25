@@ -14,7 +14,7 @@ class TurnOptions {
     System.out.println("4 | Dock at fort");
     System.out.println("5 | Repair sub");
     System.out.println("6 | CONTINUE traveling");
-    System.out.println("7 | See sub stats");
+    System.out.println("7 | See sub status");
   }
 
   public void showBattleOptions() {

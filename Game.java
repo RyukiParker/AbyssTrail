@@ -23,29 +23,35 @@ class Game {
     String subName = ui.readString();
 
     Sub sub = new Sub(subName, subType);
-    sub.showStats();
+    sub.showStatus();
+
+    boolean moveOn = false;
 
     // Main game loop
     while (gameEnd == false) {
-      
-      if (sub.isDocked == false && sub.inBattle == false) {
-        to.showTravelingOptions();
-        ui.travelingInput(sub);
-      } else if (sub.isDocked == true) {
-        to.showDockedOptions();
-        ui.dockedInput(sub);
-      } else if (sub.inBattle == true) {
-        to.showBattleOptions();
-        ui.battleInput(sub);
-      } else {
-        System.out.println("BROKEN, BOTH DOCKED AND BATTLING");
+      System.out.println("Game start");
+
+      while (moveOn == false) {
+        System.out.println("Current time: " + this.hours);
+        if (sub.isDocked == false && sub.inBattle == false) {
+          to.showTravelingOptions();
+          moveOn = ui.travelingInput(sub);
+        } else if (sub.isDocked == true) {
+          to.showDockedOptions();
+          moveOn = ui.dockedInput(sub);
+        } else if (sub.inBattle == true) {
+          to.showBattleOptions();
+          moveOn = ui.battleInput(sub);
+        } else {
+          System.out.println("BROKEN, BOTH DOCKED AND BATTLING");
+        }
       }
 
 
       // Keeping track of how many hours passed
       hours += 3;
-      
-      gameEnd = true;
+      moveOn = false;
+      //gameEnd = true;
     }
     System.out.println("\n\nGame Ended");
   }

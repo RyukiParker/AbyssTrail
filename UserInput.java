@@ -30,7 +30,7 @@ class UserInput {
 
   // experimenting, this might be horrible
 
-  public void travelingInput(Sub sub) {
+  public boolean travelingInput(Sub sub) {
     // corresponds to TurnOption traveling options
     Scanner sc = new Scanner(System.in);
     System.out.print("Choose option: ");
@@ -42,48 +42,61 @@ class UserInput {
               int newSpeed = sc.nextInt();
               sub.changeSpeed(newSpeed);
               System.out.println("Set sub speed to " + sub.getSpeed());
-              break;
-      case 2: System.out.println("changing dir...");
-              break;
+              return false;
+      case 2: System.out.println("Current direction: " + sub.getDirection());
+              System.out.print("Enter new direction: ");
+              int newDir = sc.nextInt();
+              sub.changeDirection(newDir);
+              System.out.println("Set sub direction to " + sub.getDirection());
+              return false;
       case 3: System.out.println("viewing inv...");
-              break;
+              return false;
       case 4: System.out.println("docking at fort...");
-              break;
-      case 5: System.out.println("repairing sub...");
-              break;
+              return true;
+      case 5: if (sub.getHealth() >= sub.getMaxHealth()) {
+                System.out.println("Sub is in perfect condition.");
+              } else {
+                System.out.println("Repairing...");
+                // now actually repair it
+              }
+              return false;
       case 6: System.out.println("continuing on...");
-              break;
-      case 7: sub.showStats();
-              break;
+              // move sub depening on speed
+              return true;
+      case 7: sub.showStatus();
+              return false;
     }
+    return false;
   }
 
-  public void battleInput(Sub sub) {
+  public boolean battleInput(Sub sub) {
     Scanner sc = new Scanner(System.in);
     System.out.print("Choose option: ");
     int optNum = sc.nextInt();
     switch (optNum) {
       case 1: System.out.println();
-              break;
+              return false;
       case 2: System.out.println();
-              break;
+              return false;
       case 3: System.out.println();
-              break;
+              return false;
     }
+    return false;
   }
 
-  public void dockedInput(Sub sub) {
+  public boolean dockedInput(Sub sub) {
     Scanner sc = new Scanner(System.in);
     System.out.print("Choose option: ");
     int optNum = sc.nextInt();
     switch (optNum) {
       case 1: System.out.println();
-              break;
+              return false;
       case 2: System.out.println();
-              break;
+              return false;
       case 3: System.out.println();
-              break;
+              return false;
     }
+    return false;
   }
 
   // make others when needed for specific inputs
