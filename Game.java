@@ -29,13 +29,14 @@ class Game {
 
     // Main game loop
     while (gameEnd == false) {
-      System.out.println("Game start");
 
       while (moveOn == false) {
         System.out.println("Current time: " + this.hours);
         if (sub.isDocked == false && sub.inBattle == false) {
           to.showTravelingOptions();
           moveOn = ui.travelingInput(sub);
+          System.out.println("--------------------\nSub x position: " + sub.getXPos());
+          System.out.println("Sub depth: " + sub.getYPos());
         } else if (sub.isDocked == true) {
           to.showDockedOptions();
           moveOn = ui.dockedInput(sub);

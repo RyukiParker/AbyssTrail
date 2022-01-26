@@ -41,7 +41,7 @@ class Sub {
       this.maxSpeed = 200;
       this.attackDmg = 70;
     }
-    this.maxDepth = 1000;
+    this.maxDepth = 10000;
     this.xPos = 0;
     this.yPos = 0;
   }
@@ -57,11 +57,60 @@ class Sub {
     target.takeHit(attackDmg);
   }
 
+  public boolean travel() {
+    double diagSpeed = Math.sqrt(2)/2 * this.speed;
+    switch (this.direction) {
+      case 0: System.out.println("Sub is stopped");
+              return true;
+      case 1: System.out.println("Sub is moving up-left");
+              if (this.yPos - diagSpeed < 0) {
+                System.out.println("Can't fly above surface!!");
+                return false;
+              } else {
+                this.xPos -= diagSpeed;
+                this.yPos -= diagSpeed;
+                return true;
+              }
+      case 2: System.out.println("Sub is moving up");
+              if (this.yPos - this.speed < 0) {
+                System.out.println("Can't fly above surface!!");
+                return false;
+              } else {
+                this.yPos -= this.speed;
+                return true;
+              }
+      case 3: System.out.println("Sub is moving up-right");
+              if (this.yPos - diagSpeed < 0) {
+                System.out.println("Can't fly above surface!!");
+                return false;
+              } else {
+                this.xPos += diagSpeed;
+                this.yPos -= diagSpeed;
+                return true;
+              }
+      case 4: System.out.println("Sub is moving right");
+              this.xPos += this.speed;
+              return true;
+      case 5: System.out.println("Sub is moving down-right");
+              this.xPos += diagSpeed;
+              this.yPos += diagSpeed;
+              return true;
+      case 6: System.out.println("Sub is moving down");
+              this.yPos += this.speed;
+              return true;
+      case 7: System.out.println("Sub is moving down-left");
+              this.xPos -= diagSpeed;
+              this.yPos += diagSpeed;
+              return true;
+      case 8: System.out.println("Sub is moving left");
+              this.xPos -= this.speed;
+              return true;
+      default: return true;
+    }
+  }
+
   public void changeDirection(int newDir) {
     this.direction = newDir;
-    // convert input into a number in userinput that
-    // corresponds to a direction: 1 up, 2 up right, 3 right, etc
-    // so this doesn't have to deal with weird inputs
   }
 
   public void changeSpeed(int newSpeed) {
@@ -79,6 +128,14 @@ class Sub {
   }
 
   // Gets
+
+  public int getXPos() {
+    return this.xPos;
+  }
+
+  public int getYPos() {
+    return this.yPos;
+  }
 
   public String getName() {
     return this.name;
@@ -101,7 +158,7 @@ class Sub {
   }
 
   public void showStatus() {
-    System.out.println("\n" + this.name +"'s Sub Status");
+    System.out.println(this.name +"'s Sub Status");
     System.out.println("Health: " + this.health + " / " + this.maxHealth);
     System.out.println("Speed: " + this.speed + " / " + this.maxSpeed);
     System.out.println("Attack Damage: " + this.attackDmg);
