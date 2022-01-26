@@ -25,6 +25,8 @@ class Game {
     Sub sub = new Sub(subName, subType);
     sub.showStatus();
 
+    Fort testFort = new Fort(1000, 6000);
+
     boolean moveOn = false;
 
     // Main game loop
@@ -35,6 +37,8 @@ class Game {
         if (sub.isDocked == false && sub.inBattle == false) {
           to.showTravelingOptions();
           moveOn = ui.travelingInput(sub);
+          sub.canDock = testFort.subInRange(sub);
+
           System.out.println("--------------------\nSub x position: " + sub.getXPos());
           System.out.println("Sub depth: " + sub.getYPos());
         } else if (sub.isDocked == true) {

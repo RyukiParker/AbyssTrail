@@ -12,12 +12,14 @@ class Sub {
   private int maxDepth;
   private int attackDmg;
 
+  public boolean canDock;
   public boolean isDocked;
   public boolean inBattle; 
   // Stowage/inventory
 
   Sub(String name, int subType) {
     this.name = name;
+    this.canDock = false;
     this.isDocked = false;
     this.inBattle = false;
 
