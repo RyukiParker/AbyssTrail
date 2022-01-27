@@ -28,8 +28,6 @@ class UserInput {
     return subType;
   }
 
-  // experimenting, this might be horrible
-
   public boolean travelingInput(Sub sub) {
     // corresponds to TurnOption traveling options
     Scanner sc = new Scanner(System.in);

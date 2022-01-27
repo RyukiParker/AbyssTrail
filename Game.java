@@ -25,7 +25,7 @@ class Game {
     Sub sub = new Sub(subName, subType);
     sub.showStatus();
 
-    Fort testFort = new Fort(1000, 6000);
+    Fort testFort = new Fort("fortnite!", 1000, 6000);
 
     boolean moveOn = false;
 
