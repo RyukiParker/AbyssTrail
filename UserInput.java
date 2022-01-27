@@ -54,8 +54,14 @@ class UserInput {
               System.out.println("viewing inv...");
               return false;
       case 4: clearConsole();
-              System.out.println("docking at fort...");
-              return true;
+              if (sub.canDock == true) {
+                // dock
+                System.out.println("Docked!");
+                return true;
+              } else {
+                System.out.println("Can't dock: no fort");
+                return false;
+              }
       case 5: clearConsole();
               if (sub.getHealth() >= sub.getMaxHealth()) {
                 System.out.println("Sub is in perfect condition.");

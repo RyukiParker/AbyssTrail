@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.concurrent.ThreadLocalRandom;
 
 class Game {
 
@@ -25,7 +26,8 @@ class Game {
     Sub sub = new Sub(subName, subType);
     sub.showStatus();
 
-    Fort testFort = new Fort("fortnite!", 1000, 6000);
+    // Forts
+    Fort testFort = new Fort("fort", ThreadLocalRandom.current().nextInt(-2000, 2000), ThreadLocalRandom.current().nextInt(4000, 6000));
 
     boolean moveOn = false;
 
