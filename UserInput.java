@@ -55,7 +55,7 @@ class UserInput {
               return false;
       case 4: clearConsole();
               if (sub.canDock == true) {
-                // dock
+                sub.isDocked = true;
                 System.out.println("Docked!");
                 return true;
               } else {
@@ -112,6 +112,10 @@ class UserInput {
       case 3: clearConsole();
               System.out.println();
               return false;
+      case 4: clearConsole();
+              System.out.println("Undocked!");
+              sub.isDocked = false;
+              return true;
     }
     return false;
   }

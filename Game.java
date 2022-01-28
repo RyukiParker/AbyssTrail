@@ -27,7 +27,11 @@ class Game {
     sub.showStatus();
 
     // Forts
-    Fort testFort = new Fort("fort", ThreadLocalRandom.current().nextInt(-2000, 2000), ThreadLocalRandom.current().nextInt(4000, 6000));
+    Fort knox = new Fort("Knox", ThreadLocalRandom.current().nextInt(-20, 20), ThreadLocalRandom.current().nextInt(4000, 6000));
+
+    Fort aaaaa = new Fort("aaaaa", ThreadLocalRandom.current().nextInt(-20, 20), ThreadLocalRandom.current().nextInt(8000, 10000));
+
+    Fort[] forts = {knox, aaaaa};
 
     boolean moveOn = false;
 
@@ -39,10 +43,6 @@ class Game {
         if (sub.isDocked == false && sub.inBattle == false) {
           to.showTravelingOptions();
           moveOn = ui.travelingInput(sub);
-          sub.canDock = testFort.subInRange(sub);
-
-          System.out.println("--------------------\nSub x position: " + sub.getXPos());
-          System.out.println("Sub depth: " + sub.getYPos());
         } else if (sub.isDocked == true) {
           to.showDockedOptions();
           moveOn = ui.dockedInput(sub);
@@ -52,6 +52,13 @@ class Game {
         } else {
           System.out.println("BROKEN, BOTH DOCKED AND BATTLING");
         }
+
+        for (Fort fort : forts) {
+          sub.canDock = fort.subInRange(sub); 
+        }    
+
+        System.out.println("--------------------\nSub x position: " + sub.getXPos());
+        System.out.println("Sub depth: " + sub.getYPos());
       }
 
 

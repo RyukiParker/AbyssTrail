@@ -28,18 +28,21 @@ class TurnOptions {
   }
 
   public void showBattleOptions() {
-    System.out.println();
-    System.out.println();
-    System.out.println();
+    System.out.println("--------------------");
+    System.out.println("1 | ");
+    System.out.println("2 | ");
+    System.out.println("3 | ");
     // attack -> CONTINUE
     // attempt to run -> CONTINUE
     // command ally creatures
   }
 
   public void showDockedOptions() {
-    System.out.println();
-    System.out.println();
-    System.out.println();
+    System.out.println("--------------------");
+    System.out.println("1 | Buy");
+    System.out.println("2 | Sell");
+    System.out.println("3 | Upgrade sub");
+    System.out.println("4 | Undock from fort");
     // buy or sell 
     // upgrade
     // undock -> CONTINUE

@@ -3,8 +3,6 @@ class Fort {
   private String name;
   private int xPos;
   private int yPos;
-  private boolean isDocked = false; // maybe unneeded?
-  // Available inventory to buy
 
   Fort(String name, int x, int y) {
     this.name = name;
