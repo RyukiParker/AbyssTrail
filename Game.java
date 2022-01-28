@@ -57,8 +57,10 @@ class Game {
           sub.canDock = fort.subInRange(sub); 
         }    
 
-        System.out.println("--------------------\nSub x position: " + sub.getXPos());
-        System.out.println("Sub depth: " + sub.getYPos());
+        //System.out.println("--------------------\nX Position: " + sub.getXPos());
+        System.out.println("--------------------");
+        sub.showStatus();
+        //System.out.println("Depth: " + sub.getYPos());
       }
 
 

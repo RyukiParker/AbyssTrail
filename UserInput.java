@@ -73,7 +73,7 @@ class UserInput {
       case 6: clearConsole();
               System.out.println("continuing on...");
               return sub.travel();
-      case 7: clearConsole();
+      case 7: clearConsole(); // no need?
               sub.showStatus();
               return false;
     }

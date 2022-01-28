@@ -25,6 +25,7 @@ class TurnOptions {
     System.out.println("5 | Repair sub");
     System.out.println("6 | CONTINUE traveling");
     System.out.println("7 | See sub status");
+    // no need for 7?
   }
 
   public void showBattleOptions() {
@@ -43,6 +44,7 @@ class TurnOptions {
     System.out.println("2 | Sell");
     System.out.println("3 | Upgrade sub");
     System.out.println("4 | Undock from fort");
+    System.out.println("5 | Repair sub");
     // buy or sell 
     // upgrade
     // undock -> CONTINUE

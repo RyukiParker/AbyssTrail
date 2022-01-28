@@ -52,6 +52,7 @@ class Sub {
     this.health -= dmg;
     if (this.health <= 0) {
       //dead
+      System.out.println("you are dead");
     }
   }
 
@@ -61,6 +62,13 @@ class Sub {
 
   public boolean travel() {
     double diagSpeed = Math.sqrt(2)/2 * this.speed;
+
+    if (this.yPos + this.speed > this.maxDepth) {
+      System.out.println("\u001B[41mCRUSH DEPTH\u001B[0m");
+      this.health -= (this.yPos - this.maxDepth)/100;
+      checkIfDead();
+    }
+
     switch (this.direction) {
       case 0: System.out.println("Sub is stopped");
               return true;
@@ -108,6 +116,13 @@ class Sub {
               this.xPos -= this.speed;
               return true;
       default: return true;
+    }
+  }
+
+  private void checkIfDead() {
+    if (this.health <= 0) {
+      //dead
+      System.out.println("you are dead");
     }
   }
 
@@ -164,6 +179,7 @@ class Sub {
     System.out.println("Health: " + this.health + " / " + this.maxHealth);
     System.out.println("Speed: " + this.speed + " / " + this.maxSpeed);
     System.out.println("Attack Damage: " + this.attackDmg);
+    System.out.println("X Position: " + this.xPos);
     System.out.println("Depth: " + this.yPos + " / " + this.maxDepth);
   }
 }
