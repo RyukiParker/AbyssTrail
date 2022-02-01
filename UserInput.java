@@ -54,9 +54,12 @@ class UserInput {
               System.out.println("viewing inv...");
               return false;
       case 4: clearConsole();
+              // WHY IS THIS FALSE EVERYTIME
+              System.out.println("sub.canDock = " + sub.canDock);
               if (sub.canDock == true) {
                 sub.isDocked = true;
-                System.out.println("Docked!");
+                System.out.println("Docked at " + sub.nearestFort.getName() + "!");
+                // figure out which fort the sub is docked at
                 return true;
               } else {
                 System.out.println("Can't dock: no fort");
@@ -115,6 +118,7 @@ class UserInput {
       case 4: clearConsole();
               System.out.println("Undocked!");
               sub.isDocked = false;
+              sub.canDock = false;
               return true;
     }
     return false;

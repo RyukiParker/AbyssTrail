@@ -40,6 +40,7 @@ class Game {
 
       while (moveOn == false) {
         System.out.println("Current time: " + this.hours);
+        
         if (sub.isDocked == false && sub.inBattle == false) {
           to.showTravelingOptions();
           moveOn = ui.travelingInput(sub);
@@ -54,8 +55,14 @@ class Game {
         }
 
         for (Fort fort : forts) {
-          sub.canDock = fort.subInRange(sub); 
-        }    
+          // THIS LOOP CHECKS ALL FORTS WITHOUT STOPPING NO WONDER ITS BROKEN GO CLEAN EVERYTHING UP
+          fort.subInRange(sub);
+          if (sub.canDock = true) {
+            break;
+          }
+        }   
+
+        
 
         //System.out.println("--------------------\nX Position: " + sub.getXPos());
         System.out.println("--------------------");
