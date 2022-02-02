@@ -20,11 +20,11 @@ class TurnOptions {
     System.out.println("--------------------");
     System.out.println("1 | Change speed");
     System.out.println("2 | Change direction");
-    System.out.println("3 | View inventory");
+    System.out.println("3 | View inventory <- no work yet");
     System.out.println("4 | Dock at fort");
-    System.out.println("5 | Repair sub");
+    System.out.println("5 | Repair sub <- no work yet");
     System.out.println("6 | CONTINUE traveling");
-    System.out.println("7 | See sub status");
+    System.out.println("7 | See ally creatures <- no work yet");
     // no need for 7?
   }
 
@@ -42,9 +42,10 @@ class TurnOptions {
     System.out.println("--------------------");
     System.out.println("1 | Buy");
     System.out.println("2 | Sell");
-    System.out.println("3 | Upgrade sub");
+    System.out.println("3 | View inventory");
     System.out.println("4 | Undock from fort");
-    System.out.println("5 | Repair sub");
+    System.out.println("5 | Upgrade sub");
+    System.out.println("6 | Repair sub");
     // buy or sell 
     // upgrade
     // undock -> CONTINUE

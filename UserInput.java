@@ -52,17 +52,15 @@ class UserInput {
               return false;
       case 3: clearConsole();
               System.out.println("viewing inv...");
+              System.out.println("Inventory: " + sub.getInv());
               return false;
       case 4: clearConsole();
-              // WHY IS THIS FALSE EVERYTIME
-              System.out.println("sub.canDock = " + sub.canDock);
               if (sub.canDock == true) {
                 sub.isDocked = true;
-                System.out.println("Docked at " + sub.nearestFort.getName() + "!");
-                // figure out which fort the sub is docked at
+                System.out.println("Docked at Fort " + sub.nearestFort.getName() + "!");
                 return true;
               } else {
-                System.out.println("Can't dock: no fort");
+                System.out.println("Can't dock: No fort");
                 return false;
               }
       case 5: clearConsole();
@@ -76,8 +74,8 @@ class UserInput {
       case 6: clearConsole();
               System.out.println("continuing on...");
               return sub.travel();
-      case 7: clearConsole(); // no need?
-              sub.showStatus();
+      case 7: clearConsole();
+              System.out.println("this does nothing for now");
               return false;
     }
     return false;
@@ -101,34 +99,35 @@ class UserInput {
     return false;
   }
 
-  public boolean dockedInput(Sub sub) {
+  public boolean dockedInput(Sub sub, Fort fort) {
     Scanner sc = new Scanner(System.in);
     System.out.print("Choose option: ");
     int optNum = sc.nextInt();
     switch (optNum) {
       case 1: clearConsole();
-              System.out.println();
+              System.out.println("Goods to buy:");
+              fort.getBuyList();
+              System.out.print("# of item: ");
+              int buyNum = sc.nextInt();
+              fort.buyItem(sub, buyNum);
               return false;
       case 2: clearConsole();
               System.out.println();
               return false;
       case 3: clearConsole();
-              System.out.println();
+              System.out.println("viewing inv...");
+              sub.getInv();
               return false;
       case 4: clearConsole();
               System.out.println("Undocked!");
               sub.isDocked = false;
-              sub.canDock = false;
               return true;
+      case 5: clearConsole();
+              System.out.println();
+              return false;
     }
     return false;
   }
-
-  // make others when needed for specific inputs
-  // ie readNum, if not a number, re-ask for input
-  // OR
-  // add methods for checking what the user entered and what it should be
-  // checkCommand, checkName, etc.
 
   private void clearConsole() {
     System.out.print("\033[H\033[2J");

@@ -35,18 +35,21 @@ class Game {
 
     boolean moveOn = false;
 
+    // Add some lore or goal or something
+
     // Main game loop
     while (gameEnd == false) {
 
       while (moveOn == false) {
         System.out.println("Current time: " + this.hours);
+        // add counter for # of creatures the player has? ex: (Creatures: 0 / 6)
         
         if (sub.isDocked == false && sub.inBattle == false) {
           to.showTravelingOptions();
           moveOn = ui.travelingInput(sub);
         } else if (sub.isDocked == true) {
           to.showDockedOptions();
-          moveOn = ui.dockedInput(sub);
+          moveOn = ui.dockedInput(sub, sub.nearestFort);
         } else if (sub.inBattle == true) {
           to.showBattleOptions();
           moveOn = ui.battleInput(sub);
@@ -55,9 +58,8 @@ class Game {
         }
 
         for (Fort fort : forts) {
-          // THIS LOOP CHECKS ALL FORTS WITHOUT STOPPING NO WONDER ITS BROKEN GO CLEAN EVERYTHING UP
           fort.subInRange(sub);
-          if (sub.canDock = true) {
+          if (sub.canDock == true) {
             break;
           }
         }   

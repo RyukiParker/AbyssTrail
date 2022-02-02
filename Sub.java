@@ -1,4 +1,6 @@
 import Creatures.EnemyCreature;
+import java.util.ArrayList;
+
 class Sub {
 
   private String name;
@@ -11,12 +13,13 @@ class Sub {
   private int yPos;
   private int maxDepth;
   private int attackDmg;
+  private int money;
+  private ArrayList<Item> inventory = new ArrayList<Item>();
 
   public boolean canDock;
   public boolean isDocked;
   public Fort nearestFort;
   public boolean inBattle; 
-  // Stowage/inventory
 
   Sub(String name, int subType) {
     this.name = name;
@@ -179,6 +182,18 @@ class Sub {
 
   public int getDirection() {
     return this.direction;
+  }
+
+  public ArrayList<Item> getInv() {
+    System.out.println("Inventory: ");
+    for(Item item : this.inventory) {
+      System.out.println("\t" + item.getName());
+    }
+    return this.inventory;
+  }
+
+  public void addItem(Item item) {
+    this.inventory.add(item);
   }
 
   public void showStatus() {
