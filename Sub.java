@@ -47,6 +47,7 @@ class Sub {
       this.maxSpeed = 200;
       this.attackDmg = 70;
     }
+    this.money = 2000;
     this.maxDepth = 10000;
     this.xPos = 0;
     this.yPos = 0;
@@ -154,6 +155,10 @@ class Sub {
     System.out.println("sub.canDock = " + this.canDock);
   }
 
+  public void spendMoney(int amount) {
+    this.money -= amount;
+  }
+
   // Gets
 
   public int getXPos() {
@@ -184,12 +189,15 @@ class Sub {
     return this.direction;
   }
 
-  public ArrayList<Item> getInv() {
+  public int getMoney() {
+    return this.money;
+  }
+
+  public void getInv() {
     System.out.println("Inventory: ");
     for(Item item : this.inventory) {
       System.out.println("\t" + item.getName());
     }
-    return this.inventory;
   }
 
   public void addItem(Item item) {
@@ -201,6 +209,7 @@ class Sub {
     System.out.println("Health: " + this.health + " / " + this.maxHealth);
     System.out.println("Speed: " + this.speed + " / " + this.maxSpeed);
     System.out.println("Attack Damage: " + this.attackDmg);
+    System.out.println("Money: $" + this.money);
     System.out.println("X Position: " + this.xPos);
     System.out.println("Depth: " + this.yPos + " / " + this.maxDepth);
   }

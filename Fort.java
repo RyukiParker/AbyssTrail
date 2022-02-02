@@ -1,16 +1,25 @@
+import java.util.ArrayList;
+
 class Fort {
 
   private String name;
   private int xPos;
   private int yPos;
 
-  Item item1 = new Item("metal");
-  private Item[] inventory = {item1};
+  // Base items at every fort
+  Item itemSteel = new Item("Steel", 200);
+  Item itemMedkit = new Item("Medkit", 500);
+  Item itemToolkit = new Item("Toolkit", 1250);
+  private ArrayList<Item> inventory = new ArrayList<Item>();
 
   Fort(String name, int x, int y) {
     this.name = name;
     this.xPos = x;
     this.yPos = y;
+
+    this.inventory.add(itemSteel);
+    this.inventory.add(itemMedkit);
+    this.inventory.add(itemToolkit);
   }
 
   public void subInRange(Sub sub) {
@@ -25,15 +34,23 @@ class Fort {
   } 
 
   public void getBuyList() {
-    for (int i = 0; i < inventory.length; i++) {
-      System.out.println((i+1) + " | " + inventory[i].getName());
+    System.out.println("Goods to buy (0 to go back):");
+    for (int i = 0; i < inventory.size(); i++) {
+      System.out.println((i+1) + " | " + this.inventory.get(i).getName() + ", $" + this.inventory.get(i).getBuyPrice());
     }
   }
 
   public void buyItem(Sub sub, int id) {
-    // add costs and stuff
-    sub.addItem(this.inventory[id-1]);
-    System.out.println("Bought " + this.inventory[id-1] + "!");
+    // check if player can buy and subtract money
+    Item item = this.inventory.get(id-1);
+    if (sub.getMoney() >= item.getBuyPrice()) {
+      sub.addItem(item);
+      sub.spendMoney(item.getBuyPrice());
+      System.out.println("Bought " + item.getName() + "!");
+    } else {
+      System.out.println("Not enough money.");
+    }
+    
   }
 
   public String getName() {

@@ -41,6 +41,8 @@ class Game {
     while (gameEnd == false) {
 
       while (moveOn == false) {
+        System.out.println("--------------------");
+        sub.showStatus();
         System.out.println("Current time: " + this.hours);
         // add counter for # of creatures the player has? ex: (Creatures: 0 / 6)
         
@@ -63,17 +65,8 @@ class Game {
             break;
           }
         }   
-
-        
-
-        //System.out.println("--------------------\nX Position: " + sub.getXPos());
-        System.out.println("--------------------");
-        sub.showStatus();
-        //System.out.println("Depth: " + sub.getYPos());
       }
 
-
-      // Keeping track of how many hours passed
       hours += 3;
       moveOn = false;
       //gameEnd = true;

@@ -52,7 +52,7 @@ class UserInput {
               return false;
       case 3: clearConsole();
               System.out.println("viewing inv...");
-              System.out.println("Inventory: " + sub.getInv());
+              sub.getInv();
               return false;
       case 4: clearConsole();
               if (sub.canDock == true) {
@@ -105,10 +105,13 @@ class UserInput {
     int optNum = sc.nextInt();
     switch (optNum) {
       case 1: clearConsole();
-              System.out.println("Goods to buy:");
+              System.out.println("Your money: $" + sub.getMoney());
               fort.getBuyList();
               System.out.print("# of item: ");
               int buyNum = sc.nextInt();
+              if (buyNum == 0) {
+                return false;
+              }
               fort.buyItem(sub, buyNum);
               return false;
       case 2: clearConsole();

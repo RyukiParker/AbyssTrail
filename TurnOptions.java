@@ -20,7 +20,7 @@ class TurnOptions {
     System.out.println("--------------------");
     System.out.println("1 | Change speed");
     System.out.println("2 | Change direction");
-    System.out.println("3 | View inventory <- no work yet");
+    System.out.println("3 | View inventory");
     System.out.println("4 | Dock at fort");
     System.out.println("5 | Repair sub <- no work yet");
     System.out.println("6 | CONTINUE traveling");
@@ -41,11 +41,11 @@ class TurnOptions {
   public void showDockedOptions() {
     System.out.println("--------------------");
     System.out.println("1 | Buy");
-    System.out.println("2 | Sell");
+    System.out.println("2 | Sell <- no work yet");
     System.out.println("3 | View inventory");
     System.out.println("4 | Undock from fort");
-    System.out.println("5 | Upgrade sub");
-    System.out.println("6 | Repair sub");
+    System.out.println("5 | Upgrade sub <- no work yet");
+    System.out.println("6 | Repair sub <- no work yet");
     // buy or sell 
     // upgrade
     // undock -> CONTINUE
