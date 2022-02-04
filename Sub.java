@@ -1,4 +1,3 @@
-import Creatures.EnemyCreature;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -64,8 +63,8 @@ class Sub {
     }
   }
 
-  public void attackTarget(EnemyCreature target) {
-    target.takeHit(attackDmg);
+  public void attack(Enemy target) {
+    target.takeHit(attackDmg, this);
   }
 
   public boolean travel() {

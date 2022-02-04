@@ -88,7 +88,7 @@ class UserInput {
     switch (optNum) {
       case 1: clearConsole();
               System.out.println("attacking...");
-              
+              sub.attack(sub.target);
               return true;
       case 2: clearConsole();
               System.out.println("attempting to run...");

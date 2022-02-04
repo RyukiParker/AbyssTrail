@@ -24,14 +24,12 @@ class TurnOptions {
     System.out.println("4 | Dock at fort");
     System.out.println("5 | Repair sub <- no work yet");
     System.out.println("6 | CONTINUE traveling");
-    System.out.println("7 | See ally creatures <- no work yet");
-    // no need for 7?
   }
 
   public void showBattleOptions() {
     System.out.println("--------------------");
     System.out.println("1 | Attack");
-    System.out.println("2 | Attempt to run");
+    System.out.println("2 | Attempt to run <- no work yet");
     System.out.println("3 | ????");
     // attack -> CONTINUE
     // attempt to run -> CONTINUE

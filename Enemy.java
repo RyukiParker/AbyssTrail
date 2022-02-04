@@ -21,18 +21,27 @@ class Enemy {
     }
   }
 
-  public void takeHit(int amt) {
+  public void takeHit(int amt, Sub sub) {
     this.health -= amt;
     if (this.health <= 0) {
       // dead
+      sub.inBattle = false;
+      System.out.println(this.name + " died.");
+    } else {
+      attack(sub);
+      System.out.println(this.name + " attacked your sub!");
     }
   }
 
-  public void attack(Sub sub) {
+  private void attack(Sub sub) {
     sub.takeHit(this.attackDmg);
   }
 
   public String getName() {
     return this.name;
+  }
+
+  public int getHealth() {
+    return this.health;
   }
 }

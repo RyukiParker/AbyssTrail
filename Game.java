@@ -52,20 +52,22 @@ class Game {
           // 10% chance to encounter
           int chance = ThreadLocalRandom.current().nextInt(1, 10);
           int enemyType = 1; // 1 for now, change chances for harder enemies the further down you go
-          if (chance == 1) {
+          if (chance == 1 && sub.getSpeed() > 0) {
             System.out.println("ENEMY APPROACHES");
             moveOn = false;
             sub.inBattle = true;
             sub.target = new Enemy(enemyType);
+            System.out.println("A " + sub.target.getName() + " approaches!");
             // continue to rerun loop and show battle options
           } else {
             sub.inBattle = false;
           }
-          
         } else if (sub.isDocked == true) {
           to.showDockedOptions();
           moveOn = ui.dockedInput(sub, sub.nearestFort);
         } else if (sub.inBattle == true) {
+          System.out.println("--------------------");
+          System.out.println(sub.target.getName() + "'s health: " + sub.target.getHealth());
           to.showBattleOptions();
           moveOn = ui.battleInput(sub);
         } else {
