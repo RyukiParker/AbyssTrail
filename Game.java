@@ -35,7 +35,7 @@ class Game {
 
     boolean moveOn = false;
 
-    // Add some lore or goal or something
+    System.out.println("lore oops i dropped my keys better go get them");
 
     // Main game loop
     while (gameEnd == false) {
@@ -44,11 +44,24 @@ class Game {
         System.out.println("--------------------");
         sub.showStatus();
         System.out.println("Current time: " + this.hours);
-        // add counter for # of creatures the player has? ex: (Creatures: 0 / 6)
         
         if (sub.isDocked == false && sub.inBattle == false) {
           to.showTravelingOptions();
           moveOn = ui.travelingInput(sub);
+
+          // 10% chance to encounter
+          int chance = ThreadLocalRandom.current().nextInt(1, 10);
+          int enemyType = 1; // 1 for now, change chances for harder enemies the further down you go
+          if (chance == 1) {
+            System.out.println("ENEMY APPROACHES");
+            moveOn = false;
+            sub.inBattle = true;
+            sub.target = new Enemy(enemyType);
+            // continue to rerun loop and show battle options
+          } else {
+            sub.inBattle = false;
+          }
+          
         } else if (sub.isDocked == true) {
           to.showDockedOptions();
           moveOn = ui.dockedInput(sub, sub.nearestFort);

@@ -87,11 +87,12 @@ class UserInput {
     int optNum = sc.nextInt();
     switch (optNum) {
       case 1: clearConsole();
-              System.out.println();
-              return false;
+              System.out.println("attacking...");
+              
+              return true;
       case 2: clearConsole();
-              System.out.println();
-              return false;
+              System.out.println("attempting to run...");
+              return true;
       case 3: clearConsole();
               System.out.println();
               return false;

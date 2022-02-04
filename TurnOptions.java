@@ -30,9 +30,9 @@ class TurnOptions {
 
   public void showBattleOptions() {
     System.out.println("--------------------");
-    System.out.println("1 | ");
-    System.out.println("2 | ");
-    System.out.println("3 | ");
+    System.out.println("1 | Attack");
+    System.out.println("2 | Attempt to run");
+    System.out.println("3 | ????");
     // attack -> CONTINUE
     // attempt to run -> CONTINUE
     // command ally creatures

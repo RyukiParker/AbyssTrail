@@ -34,7 +34,7 @@ class Fort {
   } 
 
   public void getBuyList() {
-    System.out.println("Goods to buy (0 to go back):");
+    System.out.println("Goods to buy: \n0 | Go back");
     for (int i = 0; i < inventory.size(); i++) {
       System.out.println((i+1) + " | " + this.inventory.get(i).getName() + ", $" + this.inventory.get(i).getBuyPrice());
     }
@@ -49,8 +49,7 @@ class Fort {
       System.out.println("Bought " + item.getName() + "!");
     } else {
       System.out.println("Not enough money.");
-    }
-    
+    } 
   }
 
   public String getName() {

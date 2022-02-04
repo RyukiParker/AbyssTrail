@@ -1,5 +1,6 @@
 import Creatures.EnemyCreature;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 class Sub {
 
@@ -19,7 +20,9 @@ class Sub {
   public boolean canDock;
   public boolean isDocked;
   public Fort nearestFort;
+
   public boolean inBattle; 
+  public Enemy target;
 
   Sub(String name, int subType) {
     this.name = name;
@@ -147,12 +150,6 @@ class Sub {
 
   private void repairSub() {
 
-  }
-
-  public void canDock() {
-    System.out.println("There is no way this sub shouldn't be able to dock now");
-    this.canDock = true;
-    System.out.println("sub.canDock = " + this.canDock);
   }
 
   public void spendMoney(int amount) {
