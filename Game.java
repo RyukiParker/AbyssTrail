@@ -6,6 +6,7 @@ class Game {
   private boolean gameEnd = false;
   UserInput ui;
   TurnOptions to;
+  SpawnRate sr;
   int hours;
 
   Game() {
@@ -13,6 +14,7 @@ class Game {
 
     ui = new UserInput();
     to = new TurnOptions();
+    sr = new SpawnRate();
     hours = 0;
   }
 
@@ -36,6 +38,7 @@ class Game {
     boolean moveOn = false;
 
     System.out.println("lore oops i dropped my keys better go get them");
+    // (maybe) Goal is to craft some item and plant it really deep in the ocean near the center of the planet so you can blow it up and destroy the aliens terrorizing your home planet
 
     // Main game loop
     while (gameEnd == false) {
@@ -48,20 +51,7 @@ class Game {
         if (sub.isDocked == false && sub.inBattle == false) {
           to.showTravelingOptions();
           moveOn = ui.travelingInput(sub);
-
-          // 10% chance to encounter
-          int chance = ThreadLocalRandom.current().nextInt(1, 10);
-          int enemyType = 1; // 1 for now, change chances for harder enemies the further down you go
-          if (chance == 1 && sub.getSpeed() > 0) {
-            System.out.println("ENEMY APPROACHES");
-            moveOn = false;
-            sub.inBattle = true;
-            sub.target = new Enemy(enemyType);
-            System.out.println("A " + sub.target.getName() + " approaches!");
-            // continue to rerun loop and show battle options
-          } else {
-            sub.inBattle = false;
-          }
+          sr.spawn(sub, sub.getYPos());
         } else if (sub.isDocked == true) {
           to.showDockedOptions();
           moveOn = ui.dockedInput(sub, sub.nearestFort);
