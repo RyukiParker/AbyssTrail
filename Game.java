@@ -7,6 +7,7 @@ class Game {
   UserInput ui;
   TurnOptions to;
   SpawnRate sr;
+  GUI gui;
   int hours;
 
   Game() {
@@ -15,11 +16,12 @@ class Game {
     ui = new UserInput();
     to = new TurnOptions();
     sr = new SpawnRate();
+    gui = new GUI();
     hours = 0;
   }
 
   public void play() {
-
+    gui.loadImage();
     // Game setup
     int subType = ui.askSubType();
     System.out.print("Name your sub: ");

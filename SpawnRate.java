@@ -7,7 +7,7 @@ class SpawnRate {
   }
 
   public void spawn(Sub sub, int depth) {
-    int chance = ThreadLocalRandom.current().nextInt(1, 10);
+    int chance = ThreadLocalRandom.current().nextInt(1, 30);
 
     int enemyType = 1; // 1 for now, change chances for harder enemies the further down you go
 
