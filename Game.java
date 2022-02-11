@@ -31,11 +31,11 @@ class Game {
     sub.showStatus();
 
     // Forts
-    Fort knox = new Fort("Knox", ThreadLocalRandom.current().nextInt(-20, 20), ThreadLocalRandom.current().nextInt(4000, 6000));
+    Fort shallow1 = new Fort("Knox", ThreadLocalRandom.current().nextInt(-20, 20), ThreadLocalRandom.current().nextInt(4000, 6000));
 
-    Fort aaaaa = new Fort("aaaaa", ThreadLocalRandom.current().nextInt(-20, 20), ThreadLocalRandom.current().nextInt(8000, 10000));
+    Fort shallow2 = new Fort("aaaaa", ThreadLocalRandom.current().nextInt(-20, 20), ThreadLocalRandom.current().nextInt(8000, 10000));
 
-    Fort[] forts = {knox, aaaaa};
+    Fort[] forts = {shallow1, shallow2};
 
     boolean moveOn = false;
 

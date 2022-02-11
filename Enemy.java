@@ -18,6 +18,9 @@ class Enemy {
               this.health = 90;
               this.attackDmg = 50;
               break;
+      case 10: this.name = "???";
+              this.health = 1000;
+              this.attackDmg = 400;
     }
   }
 
