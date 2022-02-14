@@ -7,31 +7,54 @@ import java.io.IOException;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.Toolkit;
 
-class GUI {
+class GUI extends javax.swing.JFrame {
 
-  String file = "fish.jpg";
   JFrame frame;
 
   GUI() {
     frame = new JFrame();
+    frame.setSize(500, 500);
   }
 
-  public void loadImage() {
+  public void loadImage(String imageFileName, int x, int y) {
     try {
-      BufferedImage fish = resize(ImageIO.read(new File(file)), 100, 100);
+      
+      BufferedImage image = resize(ImageIO.read(new File("Sprites/" + imageFileName)), 100, 100);
 
-      ImageIcon icon = new ImageIcon(fish);
-      frame.setLayout(new FlowLayout());
-      frame.setSize(500, 500);
+      frame.setLayout(null);
+      ImageIcon icon = new ImageIcon(image);
       JLabel lbl = new JLabel();
       lbl.setIcon(icon);
+      lbl.setBounds(x, y, 500, 500);
       frame.add(lbl);
       frame.setVisible(true);
       frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     } catch (IOException e) {
 
     }
+  }
+
+  public void setBackground() {
+    //Image img = Toolkit.getDefaultToolkit().getImage("Sprites/fish.jpg");
+
+    JTextArea text = new JTextArea() {
+      final ImageIcon icon = new ImageIcon("Sprites/fish.jpg");
+      Image img = icon.getImage();
+      
+      {setOpaque(false);}
+      public void paintComponent(Graphics graphics) 
+      {
+        graphics.drawImage(img, 0, 0, this);
+        super.paintComponent(graphics);
+    };
+
+    JScrollPane pane = new JScrollPane(text);
+    Container content = frame.getContentPane();
+    content.add(pane, BorderLayout.CENTER);
   }
 
   private BufferedImage resize(BufferedImage image, int width, int height) {

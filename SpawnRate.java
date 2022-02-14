@@ -12,12 +12,12 @@ class SpawnRate {
     //int enemyType = 1; // 1 for now, change chances for harder enemies the further down you go
 
     if (depth >= 0 && depth < 6000) {
-      chance = ThreadLocalRandom.current().nextInt(1, 4);
-      if (chance >= 1 || chance < 3) {
-        // common fish enemy (2/3 chance)
+      chance = ThreadLocalRandom.current().nextInt(1, 50);
+      if (chance >= 1 && chance < 3) {
+        // common fish enemy (2/50 chance)
         startBattle(sub, 1);
-      } else {
-        // less common fish enemy (1/3 chance)
+      } else if (chance == 3) {
+        // less common fish enemy (1/50 chance)
         startBattle(sub, 2);
       }
 

@@ -6,11 +6,11 @@ class Enemy {
 
   Enemy(int type) {
     switch (type) {
-      case 1: this.name = "Piranha";
+      case 1: this.name = "fishh";
               this.health = 20;
               this.attackDmg = 5;
               break;
-      case 2: this.name = "Swordfish";
+      case 2: this.name = "big fish";
               this.health = 40;
               this.attackDmg = 15;
               break;

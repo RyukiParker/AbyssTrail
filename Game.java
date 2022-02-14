@@ -21,8 +21,10 @@ class Game {
   }
 
   public void play() {
-    gui.loadImage();
     // Game setup
+    gui.setBackground();
+    gui.loadImage("fish.jpg", 0, -200);
+    gui.loadImage("fish.jpg", 300, -100);
     int subType = ui.askSubType();
     System.out.print("Name your sub: ");
     String subName = ui.readString();
@@ -31,9 +33,9 @@ class Game {
     sub.showStatus();
 
     // Forts
-    Fort shallow1 = new Fort("Knox", ThreadLocalRandom.current().nextInt(-20, 20), ThreadLocalRandom.current().nextInt(4000, 6000));
+    Fort shallow1 = new Fort("A", ThreadLocalRandom.current().nextInt(-20, 20), ThreadLocalRandom.current().nextInt(4000, 6000));
 
-    Fort shallow2 = new Fort("aaaaa", ThreadLocalRandom.current().nextInt(-20, 20), ThreadLocalRandom.current().nextInt(8000, 10000));
+    Fort shallow2 = new Fort("B", ThreadLocalRandom.current().nextInt(-20, 20), ThreadLocalRandom.current().nextInt(8000, 10000));
 
     Fort[] forts = {shallow1, shallow2};
 
