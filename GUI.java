@@ -14,10 +14,16 @@ import java.awt.Toolkit;
 class GUI extends javax.swing.JFrame {
 
   JFrame frame;
+  JPanel panel;
+  int winX;
+  int winY;
 
-  GUI() {
-    frame = new JFrame();
-    frame.setSize(500, 500);
+  GUI(int winX, int winY) {
+    this.winX = winX;
+    this.winY = winY;
+    frame = new JFrame("Abyss Trail");
+    frame.setSize(winX, winY);
+    panel = new JPanel();
   }
 
   public void loadImage(String imageFileName, int x, int y) {
@@ -29,32 +35,40 @@ class GUI extends javax.swing.JFrame {
       ImageIcon icon = new ImageIcon(image);
       JLabel lbl = new JLabel();
       lbl.setIcon(icon);
-      lbl.setBounds(x, y, 500, 500);
+      lbl.setBounds(x, y, this.winX, this.winY);
       frame.add(lbl);
-      frame.setVisible(true);
+      //frame.setVisible(true);
       frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     } catch (IOException e) {
 
     }
   }
 
-  public void setBackground() {
-    //Image img = Toolkit.getDefaultToolkit().getImage("Sprites/fish.jpg");
-
-    JTextArea text = new JTextArea() {
-      final ImageIcon icon = new ImageIcon("Sprites/fish.jpg");
-      Image img = icon.getImage();
+  public void bigFish(String imageFileName) {
+    try {
       
-      {setOpaque(false);}
-      public void paintComponent(Graphics graphics) 
-      {
-        graphics.drawImage(img, 0, 0, this);
-        super.paintComponent(graphics);
-    };
+      BufferedImage image = resize(ImageIO.read(new File("Sprites/" + imageFileName)), this.winX, this.winY);
 
-    JScrollPane pane = new JScrollPane(text);
-    Container content = frame.getContentPane();
-    content.add(pane, BorderLayout.CENTER);
+      frame.setLayout(null);
+      ImageIcon icon = new ImageIcon(image);
+      JLabel lbl = new JLabel();
+      lbl.setIcon(icon);
+      lbl.setBounds(0, 0, this.winX, this.winY);
+      frame.add(lbl);
+      //frame.setVisible(true);
+      frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    } catch (IOException e) {
+
+    }
+  }
+
+  public void showScreen() {
+    frame.setVisible(true);
+  }
+
+  public void updateScreen() {
+    frame.setVisible(false);
+    frame.setVivible(true);
   }
 
   private BufferedImage resize(BufferedImage image, int width, int height) {

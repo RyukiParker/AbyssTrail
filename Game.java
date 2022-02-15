@@ -16,15 +16,18 @@ class Game {
     ui = new UserInput();
     to = new TurnOptions();
     sr = new SpawnRate();
-    gui = new GUI();
+    gui = new GUI(500, 500);
     hours = 0;
   }
 
   public void play() {
     // Game setup
-    gui.setBackground();
     gui.loadImage("fish.jpg", 0, -200);
     gui.loadImage("fish.jpg", 300, -100);
+    gui.loadImage("fish.jpg", 250, -50);
+    gui.bigFish("fish.jpg");
+    gui.showScreen();
+    
     int subType = ui.askSubType();
     System.out.print("Name your sub: ");
     String subName = ui.readString();
