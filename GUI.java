@@ -7,9 +7,7 @@ import java.io.IOException;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import java.awt.Graphics;
 import java.awt.Image;
-import java.awt.Toolkit;
 
 class GUI extends javax.swing.JFrame {
 
@@ -44,7 +42,7 @@ class GUI extends javax.swing.JFrame {
     }
   }
 
-  public void bigFish(String imageFileName) {
+  public void setBackground(String imageFileName) {
     try {
       
       BufferedImage image = resize(ImageIO.read(new File("Sprites/" + imageFileName)), this.winX, this.winY);
@@ -68,7 +66,7 @@ class GUI extends javax.swing.JFrame {
 
   public void updateScreen() {
     frame.setVisible(false);
-    frame.setVivible(true);
+    frame.setVisible(true);
   }
 
   private BufferedImage resize(BufferedImage image, int width, int height) {

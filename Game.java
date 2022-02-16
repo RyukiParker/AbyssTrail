@@ -25,7 +25,7 @@ class Game {
     gui.loadImage("fish.jpg", 0, -200);
     gui.loadImage("fish.jpg", 300, -100);
     gui.loadImage("fish.jpg", 250, -50);
-    gui.bigFish("fish.jpg");
+    gui.setBackground("fish.jpg");
     gui.showScreen();
     
     int subType = ui.askSubType();
@@ -40,7 +40,9 @@ class Game {
 
     Fort shallow2 = new Fort("B", ThreadLocalRandom.current().nextInt(-20, 20), ThreadLocalRandom.current().nextInt(8000, 10000));
 
-    Fort[] forts = {shallow1, shallow2};
+    Fort mid1 = new Fort("C", ThreadLocalRandom.current().nextInt(-20, 20), ThreadLocalRandom.current().nextInt(12000, 15000));
+
+    Fort[] forts = {shallow1, shallow2, mid1};
 
     boolean moveOn = false;
 

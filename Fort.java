@@ -7,6 +7,7 @@ class Fort {
   private int yPos;
 
   // Base items at every fort
+  Item itemBattery = new Item("Battery", 125);
   Item itemSteel = new Item("Steel", 200);
   Item itemMedkit = new Item("Medkit", 500);
   Item itemToolkit = new Item("Toolkit", 1250);
