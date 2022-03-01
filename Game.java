@@ -83,7 +83,7 @@ class Game {
 
       hours += 3;
       moveOn = false;
-      //gameEnd = true;
+      gameEnd = sub.isDead;
     }
     System.out.println("\n\nGame Ended");
   }

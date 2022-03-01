@@ -23,11 +23,14 @@ class Sub {
   public boolean inBattle; 
   public Enemy target;
 
+  public boolean isDead;
+
   Sub(String name, int subType) {
     this.name = name;
     this.canDock = false;
     this.isDocked = false;
     this.inBattle = false;
+    this.isDead = false;
 
     // Create base stats for each subtype
     if (subType == 1) {
@@ -57,8 +60,13 @@ class Sub {
 
   public void takeHit(int dmg) {
     this.health -= dmg;
+    checkIfDead();
+  }
+
+  private void checkIfDead() {
     if (this.health <= 0) {
       //dead
+      this.isDead = true;
       System.out.println("you are dead");
     }
   }
@@ -123,13 +131,6 @@ class Sub {
               this.xPos -= this.speed;
               return true;
       default: return true;
-    }
-  }
-
-  private void checkIfDead() {
-    if (this.health <= 0) {
-      //dead
-      System.out.println("you are dead");
     }
   }
 
