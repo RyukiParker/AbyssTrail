@@ -6,11 +6,6 @@ class Fort {
   private int xPos;
   private int yPos;
 
-  // Base items at every fort
-  Item itemBattery = new Item("Battery", 125);
-  Item itemSteel = new Item("Steel", 200);
-  Item itemMedkit = new Item("Medkit", 500);
-  Item itemToolkit = new Item("Toolkit", 1250);
   private ArrayList<Item> inventory = new ArrayList<Item>();
 
   Fort(String name, int x, int y) {
@@ -18,9 +13,10 @@ class Fort {
     this.xPos = x;
     this.yPos = y;
 
-    this.inventory.add(itemSteel);
-    this.inventory.add(itemMedkit);
-    this.inventory.add(itemToolkit);
+    this.inventory.add(new Item("Battery", 125));
+    this.inventory.add(new Item("Steel", 200));
+    this.inventory.add(new Item("Medkit", 500));
+    this.inventory.add(new Item("Toolkit", 1250));
   }
 
   public void subInRange(Sub sub) {

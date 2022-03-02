@@ -11,39 +11,39 @@
     "Fort.java": [
       {
         "id": "2c257965-9326-4983-8450-dcbd44472b1a",
-        "line": 27,
-        "version": 2361,
-        "index": 689
+        "line": 23,
+        "version": 2385,
+        "index": 566
       },
       {
         "id": "a44a8146-96d8-4cd3-a6cc-8413dc7e85ce",
-        "line": 27,
-        "version": 2361,
-        "index": 689
+        "line": 23,
+        "version": 2385,
+        "index": 566
       },
       {
         "id": "2fd27c73-d322-49bc-b7cd-7605b30326c6",
-        "line": 28,
-        "version": 2361,
-        "index": 793
+        "line": 24,
+        "version": 2385,
+        "index": 670
       },
       {
         "id": "3b2bf1a7-89d9-4e8b-9fee-a2142b968f60",
-        "line": 31,
-        "version": 2361,
-        "index": 906
+        "line": 27,
+        "version": 2385,
+        "index": 783
       },
       {
         "id": "9e3e2f25-1a86-4369-b8cc-45bf88c58022",
-        "line": 33,
-        "version": 2361,
-        "index": 962
+        "line": 29,
+        "version": 2385,
+        "index": 839
       },
       {
         "id": "85eb83fd-673f-42b1-86cb-b210f48ecf9f",
-        "line": 38,
-        "version": 2361,
-        "index": 1059
+        "line": 34,
+        "version": 2385,
+        "index": 936
       }
     ],
     "GUI.java": [
@@ -160,98 +160,80 @@
       {
         "id": "1ceb5a51-2d19-42d1-89b4-ee158d6d2993",
         "line": 8,
-        "version": 4591,
+        "version": 4602,
         "index": 150
-      },
-      {
-        "id": "23bf5a79-5f41-4a5f-8d2f-e80ea7a04d9f",
-        "line": 10,
-        "version": 4591,
-        "index": 175
-      },
-      {
-        "id": "ba622e32-1849-444e-8168-b76a8bc5d750",
-        "line": 10,
-        "version": 4591,
-        "index": 175
-      },
-      {
-        "id": "35b1e952-fc55-4028-88e6-b200a65725f8",
-        "line": 10,
-        "version": 4591,
-        "index": 175
       },
       {
         "id": "cf654e35-2468-4f10-81f0-f73481f03238",
         "line": 10,
-        "version": 4591,
+        "version": 4602,
         "index": 175
       },
       {
         "id": "e9288db6-9670-4978-9278-46e93b2a88f6",
         "line": 10,
-        "version": 4591,
+        "version": 4602,
         "index": 175
       },
       {
         "id": "1ccb221b-8676-4edf-b23d-5ecd3678ec3d",
         "line": 10,
-        "version": 4591,
+        "version": 4602,
         "index": 175
       },
       {
         "id": "6eb222dd-e334-40fb-aed8-c3af42208716",
         "line": 10,
-        "version": 4591,
+        "version": 4602,
         "index": 175
       },
       {
         "id": "9d9ba271-90d7-423a-a2a0-739b914afb46",
         "line": 10,
-        "version": 4591,
+        "version": 4602,
         "index": 175
       },
       {
         "id": "9a7dfa1e-07a1-4f5b-b6b2-95ddcc5875f9",
         "line": 25,
-        "version": 4591,
+        "version": 4602,
         "index": 431
       },
       {
         "id": "c20eb45b-7edc-4ef8-88a4-23e63061d172",
         "line": 68,
-        "version": 4591,
+        "version": 4602,
         "index": 2169
       },
       {
         "id": "e425c121-05b7-44b3-8bb2-9c8489b190d2",
         "line": 68,
-        "version": 4591,
+        "version": 4602,
         "index": 2179
       },
       {
         "id": "aae78fff-4c52-419e-aa9e-29cc67ae803f",
         "line": 79,
-        "version": 4591,
+        "version": 4602,
         "index": 2557
       },
       {
         "id": "6a885655-0a73-4f69-8c20-8b7bf4dce072",
         "line": 90,
-        "version": 4591,
-        "index": 2948
+        "version": 4602,
+        "index": 2952
       },
       {
         "id": "aa8f10e8-abd4-41aa-86cc-813afe6bdd38",
         "line": 90,
-        "version": 4591,
-        "index": 3008
+        "version": 4602,
+        "index": 3012
       },
       {
         "id": "2f792256-ef21-412e-bb38-14fbe826cdd9",
         "line": 90,
-        "version": 4591,
-        "index": 3009
+        "version": 4602,
+        "index": 3013
       }
     ],
     "SpawnRate.java": [
@@ -278,74 +260,74 @@
       {
         "id": "28329e28-380d-4e32-8cbc-0504c4926ba6",
         "line": 1,
-        "version": 5247,
+        "version": 5466,
         "index": 0
       },
       {
         "id": "eab62633-2a4b-4802-b392-949cd4cafc64",
-        "line": 80,
-        "version": 5247,
-        "index": 1773
+        "line": 88,
+        "version": 5466,
+        "index": 1905
       },
       {
         "id": "bf94abc5-5e48-4ab2-a41e-61794315b9dd",
-        "line": 101,
-        "version": 5247,
-        "index": 2603
+        "line": 109,
+        "version": 5466,
+        "index": 2735
       },
       {
         "id": "69c0daf6-fbb8-4a96-b8b3-76a3e5430936",
-        "line": 102,
-        "version": 5247,
-        "index": 2666
+        "line": 110,
+        "version": 5466,
+        "index": 2798
       },
       {
         "id": "38328d60-f08b-46e9-9b88-35eea262675c",
-        "line": 112,
-        "version": 5247,
-        "index": 3062
+        "line": 120,
+        "version": 5466,
+        "index": 3194
       },
       {
         "id": "6f816942-0706-4916-b6c5-a3986a4e9852",
-        "line": 115,
-        "version": 5247,
-        "index": 3158
+        "line": 123,
+        "version": 5466,
+        "index": 3290
       },
       {
         "id": "7a100899-15b9-4996-80df-f105bb1eadcc",
-        "line": 116,
-        "version": 5247,
-        "index": 3205
+        "line": 124,
+        "version": 5466,
+        "index": 3337
       },
       {
         "id": "45f11f50-3e77-4c11-832d-2ef4ec9157d0",
-        "line": 116,
-        "version": 5247,
-        "index": 3205
+        "line": 124,
+        "version": 5466,
+        "index": 3337
       },
       {
         "id": "2f66b728-3558-42ce-a991-98fe7ce637fa",
-        "line": 118,
-        "version": 5247,
-        "index": 3277
+        "line": 126,
+        "version": 5466,
+        "index": 3409
       },
       {
         "id": "d01740c0-0ca2-4ad5-8f5b-ee4b3c6d2b4d",
-        "line": 120,
-        "version": 5247,
-        "index": 3360
+        "line": 128,
+        "version": 5466,
+        "index": 3492
       },
       {
         "id": "9c97e257-93e3-4afd-aef5-aba8892504b1",
-        "line": 152,
-        "version": 5247,
-        "index": 4028
+        "line": 153,
+        "version": 5466,
+        "index": 4035
       },
       {
         "id": "67cec4a0-96b7-476b-b788-b27650570861",
-        "line": 212,
-        "version": 5247,
-        "index": 5255
+        "line": 213,
+        "version": 5466,
+        "index": 5262
       }
     ],
     "TurnOptions.java": [

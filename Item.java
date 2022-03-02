@@ -8,6 +8,11 @@ class Item {
     this.buyPrice = buyPrice;
   }
 
+  // for enemy drops
+  Item(String name) {
+    this.name = name;
+  }
+
   public String getName() {
     return this.name;
   }
