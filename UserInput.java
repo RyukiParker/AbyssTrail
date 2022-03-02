@@ -32,7 +32,17 @@ class UserInput {
     // corresponds to TurnOption traveling options
     Scanner sc = new Scanner(System.in);
     System.out.print("Choose option: ");
-    int optNum = sc.nextInt();
+
+    // check to see if there is no input (ie just ENTER)
+    String amountInString = sc.nextLine();
+    int optNum = 0;
+    if (amountInString.equals("")) {
+            optNum = 6;
+        } else if (amountInString.matches("-?\\d+(\\.\\d+)?")) { 
+            optNum = Integer.parseInt(amountInString);
+        } else {
+            System.out.println("Number Format error");
+        }
 
     switch (optNum) {
       case 1: clearConsole();
