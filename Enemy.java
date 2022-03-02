@@ -8,7 +8,8 @@ class Enemy {
   private int attackDmg;
   private int type;
   private Item[] drops;
-  //private ArrayList<Item> drops = new ArrayList<Item>();
+  private int dropChance;
+  ThreadLocalRandom random = ThreadLocalRandom.current();
 
   Enemy(int type) {
     this.type = type;
@@ -22,16 +23,19 @@ class Enemy {
               this.health = 20;
               this.attackDmg = 5;
               this.drops = new Item[]{scale, fin};
+              this.dropChance = 30;
               break;
       case 2: this.name = "big fish";
               this.health = 40;
               this.attackDmg = 15;
               this.drops = new Item[]{scale, fin};
+              this.dropChance = 30;
               break;
       case 3: this.name = "Shark";
               this.health = 90;
               this.attackDmg = 50;
               this.drops = new Item[]{scale, fin, tooth};
+              this.dropChance = 20;
               break;
       case 10: this.name = "???";
               this.health = 1000;
@@ -46,18 +50,21 @@ class Enemy {
       sub.inBattle = false;
       System.out.println(this.name + " died.");
       //drop item (chance)
-      dropItem(sub);
+      dropItem(sub, this.dropChance);
     } else {
       attack(sub);
       System.out.println(this.name + " attacked your sub!");
     }
   }
 
-  // items should not drop every time
-  private void dropItem(Sub sub) {
-    Item droppedItem = this.drops[ThreadLocalRandom.current().nextInt(0, this.drops.length)];
+  private void dropItem(Sub sub, int dropChance) {
+    if (random.nextInt(0, 101) <= dropChance) {
+      Item droppedItem = this.drops[random.nextInt(0, this.drops.length)];
       sub.addItem(droppedItem);
       System.out.println(this.name + " dropped: " + droppedItem.getName());
+    } else {
+      System.out.println(this.name + " didn't drop anything");
+    }
   }
 
   private void attack(Sub sub) {
