@@ -78,7 +78,6 @@ class Sub {
     target.takeHit(attackDmg, this);
   }
 
-  // currently there is a "quantity" for each item, and when a new item is added to the inventory, not only does the item get added, but it copies over the quantity I gave it. this does not work.
   public void addItem(Item newItem) {
     // iterates through only key names (not values)
     boolean foundItem = false;
@@ -91,6 +90,20 @@ class Sub {
     // new item
     if (foundItem == false) {
       this.inv.put(newItem, 1);
+    }
+  }
+
+  public void subtractItem(Item itemToRemove) {
+    boolean foundItem = false;
+    for (Item i : this.inv.keySet()) {
+      if (i.getName() == itemToRemove.getName()) {
+        foundItem = true;
+        this.inv.put(i, this.inv.get(i) - 1);
+      }
+    }
+    // never has had item
+    if (foundItem == false) {
+      System.out.println(itemToRemove.getName() + " not found in inventory.");
     }
   }
 

@@ -7,7 +7,7 @@ class Game {
   UserInput ui;
   TurnOptions to;
   SpawnRate sr;
-  GUI gui;
+  //GUI gui;
   int hours;
   ThreadLocalRandom random = ThreadLocalRandom.current();
 
@@ -17,18 +17,20 @@ class Game {
     ui = new UserInput();
     to = new TurnOptions();
     sr = new SpawnRate();
-    gui = new GUI(500, 500);
+    //gui = new GUI(500, 500);
     
     hours = 0;
   }
 
   public void play() {
     // Game setup
+    /*
     gui.loadImage("fish.jpg", 0, -200);
     gui.loadImage("fish.jpg", 300, -100);
     gui.loadImage("fish.jpg", 250, -50);
     gui.setBackground("fish.jpg");
     gui.showScreen();
+    */
     
     int subType = ui.askSubType();
     System.out.print("Name your sub: ");
