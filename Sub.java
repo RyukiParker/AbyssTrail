@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.HashMap;
 
 class Sub {
 
@@ -14,7 +15,8 @@ class Sub {
   private int maxDepth;
   private int attackDmg;
   private int money;
-  private ArrayList<Item> inventory = new ArrayList<Item>();
+  private HashMap<Item, Integer> inv = new HashMap<Item, Integer>();
+  private Scanner sc;
 
   public boolean canDock;
   public boolean isDocked;
@@ -31,6 +33,7 @@ class Sub {
     this.isDocked = false;
     this.inBattle = false;
     this.isDead = false;
+    this.sc = new Scanner(System.in);
 
     // Create base stats for each subtype
     if (subType == 1) {
@@ -73,6 +76,22 @@ class Sub {
 
   public void attack(Enemy target) {
     target.takeHit(attackDmg, this);
+  }
+
+  // currently there is a "quantity" for each item, and when a new item is added to the inventory, not only does the item get added, but it copies over the quantity I gave it. this does not work.
+  public void addItem(Item newItem) {
+    // iterates through only key names (not values)
+    boolean foundItem = false;
+    for (Item i : this.inv.keySet()) {
+      if (i.getName() == newItem.getName()) {
+        foundItem = true;
+        this.inv.put(i, this.inv.get(i) + 1);
+      }
+    }
+    // new item
+    if (foundItem == false) {
+      this.inv.put(newItem, 1);
+    }
   }
 
   public boolean travel() {
@@ -192,13 +211,9 @@ class Sub {
 
   public void getInv() {
     System.out.println("Inventory: ");
-    for(Item item : this.inventory) {
-      System.out.println("\t" + item.getName());
+    for(Item item : this.inv.keySet()) {
+      System.out.println("\t" + item.getName() + ": " + this.inv.get(item));
     }
-  }
-
-  public void addItem(Item item) {
-    this.inventory.add(item);
   }
 
   public void showStatus() {

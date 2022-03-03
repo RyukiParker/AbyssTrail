@@ -13,6 +13,7 @@ class Fort {
     this.xPos = x;
     this.yPos = y;
 
+    // quantity = 1 but it doesn't matter here because for now, forts will have infinite of each item available to buy
     this.inventory.add(new Item("Battery", 125));
     this.inventory.add(new Item("Steel", 200));
     this.inventory.add(new Item("Medkit", 500));

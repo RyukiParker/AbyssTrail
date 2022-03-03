@@ -9,7 +9,7 @@ class SpawnRate {
   public void spawn(Sub sub, int depth) {
     int chance = 0;
 
-    if (depth >= 0 && depth < 6000) {
+    if (depth >= 1000 && depth < 6000) {
       chance = ThreadLocalRandom.current().nextInt(1, 50);
       if (chance >= 1 && chance < 3) {
         // fishh (2/50 chance)

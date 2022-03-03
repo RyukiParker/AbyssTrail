@@ -30,10 +30,8 @@ class TurnOptions {
     System.out.println("--------------------");
     System.out.println("1 | Attack");
     System.out.println("2 | Attempt to run <- no work yet");
-    System.out.println("3 | ????");
     // attack -> CONTINUE
     // attempt to run -> CONTINUE
-    // command ally creatures
   }
 
   public void showDockedOptions() {
@@ -42,8 +40,9 @@ class TurnOptions {
     System.out.println("2 | Sell <- no work yet");
     System.out.println("3 | View inventory");
     System.out.println("4 | Undock from fort");
-    System.out.println("5 | Upgrade sub <- no work yet");
-    System.out.println("6 | Repair sub <- no work yet");
+    System.out.println("5 | Craft Items");
+    System.out.println("6 | Upgrade sub <- no work yet");
+    System.out.println("7 | Repair sub <- no work yet");
     // buy or sell 
     // upgrade
     // undock -> CONTINUE

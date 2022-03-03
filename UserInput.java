@@ -137,7 +137,7 @@ class UserInput {
               sub.isDocked = false;
               return true;
       case 5: clearConsole();
-              System.out.println();
+              System.out.println("crafting...");
               return false;
     }
     return false;

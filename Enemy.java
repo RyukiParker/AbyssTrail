@@ -14,9 +14,10 @@ class Enemy {
   Enemy(int type) {
     this.type = type;
 
-    Item scale = new Item("Scale");
-    Item fin = new Item("Fin");
-    Item tooth = new Item("Shark Tooth");
+    // name, buyprice, quantity
+    Item scale = new Item("Scale", 1);
+    Item fin = new Item("Fin", 1);
+    Item tooth = new Item("Shark Tooth", 1);
     
     switch (this.type) {
       case 1: this.name = "fishh";
@@ -59,6 +60,7 @@ class Enemy {
 
   private void dropItem(Sub sub, int dropChance) {
     if (random.nextInt(0, 101) <= dropChance) {
+      // pick random number for index of possible drops
       Item droppedItem = this.drops[random.nextInt(0, this.drops.length)];
       sub.addItem(droppedItem);
       System.out.println(this.name + " dropped: " + droppedItem.getName());
