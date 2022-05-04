@@ -126,12 +126,12 @@ function connect() {
                       $("#enemy img").removeClass().addClass("squid");    
                       $("#announce").text("Squid Game approaches!!");
                       setTimeout(() => { $("#enemy").show(); }, 1);
-                      
                       break;
               case 3: console.log("SHARK!!!!");
                       $("#announce").text("Shark approaches!!");
+                      $("#enemy img").attr("src", "sprites/shark.png");
                       $("#enemy img").removeClass().addClass("shark");
-                      $("#enemy").show();
+                      setTimeout(() => { $("#enemy").show(); }, 1);
                       break;
             }
           }

@@ -75,7 +75,10 @@ main.background.depth3 {
 }
 
 #enemy img.shark {
-  
+  position: absolute;
+  height: 50vmin;
+  top: 15%;
+  left: 10%;
 }
 
 aside.stats {
@@ -195,6 +198,7 @@ button.dirBtn {
   visibility: hidden;
   width: 5hmin;
   background-color: darkslategray;
+  font: 4vmin Andale Mono, monospace;
   color: #fff;
   text-align: center;
   border-radius: 4px;
@@ -204,9 +208,12 @@ button.dirBtn {
 
   bottom: 100%;
   left: 50%;
-  margin-left: -2.5hmin;
+  margin-left: -2hmin;
 }
 
 .inv-item:hover .tooltip {
   visibility: visible;
+  left: 0;
+  right: 0;
+  text-align: center;
 }
