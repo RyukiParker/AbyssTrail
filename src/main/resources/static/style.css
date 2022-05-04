@@ -217,3 +217,21 @@ button.dirBtn {
   right: 0;
   text-align: center;
 }
+
+.itemAmt {
+  background-color: darkblue;
+  color: white;
+  font: 4vmin Andale Mono, monospace;
+  align-self: end;
+  position: absolute;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 5vmin;
+}
+
+.itemAmt span {
+  padding: 5%;
+  width: 20px;
+}

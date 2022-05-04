@@ -63,12 +63,15 @@ function connect() {
             switch (key) {
               case "Scale": $("#inv-scale img").attr("src", "sprites/items/scale.png");
                         $("#scale-tt").text("Scale");
+                        $("#scale-amt").text(value);
                         break;
               case "Fin": $("#inv-fin img").attr("src", "sprites/items/fin.png");
                         $("#fin-tt").text("Fin");
+                        $("#fin-amt").text(value);
                         break;
               case "Shark Tooth": $("#inv-shark-tooth img").attr("src", "sprites/items/shark-tooth.png");
                         $("#shark-tooth-tt").text("Shark Tooth");
+                        $("#shark-tooth-amt").text(value);
                         break;
             }
           })
