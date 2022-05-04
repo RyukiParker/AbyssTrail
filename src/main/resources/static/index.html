@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Abyss Trail</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="/webjars/sockjs-client/sockjs.min.js"></script>
+    <script src="/webjars/stomp-websocket/stomp.min.js"></script>
+  </head>
+  <body>
+    <main class="background depth1">
+
+      <div id="settings">
+
+        <button id="connect" class="btn btn-default" type="submit">Connect</button>
+        <button id="disconnect" class="btn btn-default" type="submit" disabled="disabled">Disconnect</button>
+      
+        <input type="text" id="type" class="form-control" placeholder="Choose Sub Type (1, 2, 3)...">
+        <input type="text" id="name" class="form-control" placeholder="Choose Submarine Name...">
+        <button id="send" class="btn btn-default" type="submit">Submit</button>
+
+        <h5>click sub to start game</h5>
+
+      </div>
+
+      <h3 id="announce"></h3>
+      
+      <div id="sub">
+        <img class="left" src="sprites/sub1.png"></img>
+      </div>
+
+      <div id="enemy">
+        <img class="anchovy" src="sprites/anchovy.png"></img>
+      </div>
+
+      <input type="text" id="speedInput" class="form-control" onfocus="this.value=''" placeholder="ENTER SPEED">
+      <button id="submitSpeed" class="btn btn-default" type="submit">Confirm</button>
+
+      <div id="directionInput">
+        <button id="subUpLeft" class="dirBtn"></button>
+        <button id="subUp" class="dirBtn"></button>
+        <button id="subUpRight" class="dirBtn"></button>
+        <button id="subLeft" class="dirBtn"></button>
+        <button id="subStop" class="dirBtn"></button>
+        <button id="subRight" class="dirBtn"></button>
+        <button id="subDownLeft" class="dirBtn"></button>
+        <button id="subDown" class="dirBtn"></button>
+        <button id="subDownRight" class="dirBtn"></button>
+      </div>
+
+      <div id="inventory">
+        <div class="inv-item" id="inv-scale">
+          <img src="sprites/items/scale-unfound.png">
+          <span class="tooltip" id="scale-tt">among</span>
+        </div>
+        <div class="inv-item" id="inv-fin">
+          <img src="sprites/items/fin-unfound.png">
+          <span class="tooltip" id="fin-tt">???</span>
+        </div>
+        <div class="inv-item" id="inv-shark-tooth">
+          <img src="sprites/items/shark-tooth-unfound.png">
+          <span class="tooltip" id="shark-tooth-tt">???</span>
+        </div>
+        <div class="inv-item" id="inv-repairkit">
+          <img src="sprites/items/repairkit-unfound.png">
+          <span class="tooltip" id="repairkit-tt">???</span>
+        </div>
+        <div class="inv-item" id="inv-5">
+          <img src="">
+          <span class="tooltip" id="5-tt">???</span>
+        </div>
+        <div class="inv-item" id="inv-6">
+          <img src="">
+          <span class="tooltip" id="6-tt">???</span>
+        </div>
+        <div class="inv-item" id="inv-7">
+          <img src="">
+          <span class="tooltip" id="7-tt">???</span>
+        </div>
+        <div class="inv-item" id="inv-8">
+          <img src="">
+          <span class="tooltip" id="8-tt">???</span>
+        </div>
+        <div class="inv-item" id="inv-9">
+          <img src="">
+          <span class="tooltip" id="9-tt">???</span>
+        </div>
+        <div class="inv-item" id="inv-10">
+          <img src="">
+          <span class="tooltip" id="10-tt">???</span>
+        </div>
+        <div class="inv-item" id="inv-11">
+          <img src="">
+          <span class="tooltip" id="11-tt">???</span>
+        </div>
+        <div class="inv-item" id="inv-12">
+          <img src="">
+          <span class="tooltip" id="12-tt">???</span>
+        </div>
+        <div class="inv-item" id="inv-13">
+          <img src="">
+          <span class="tooltip" id="13-tt">???</span>
+        </div>
+        <div class="inv-item" id="inv-14">
+          <img src="">
+          <span class="tooltip" id="14-tt">???</span>
+        </div>
+        <div class="inv-item" id="inv-15">
+          <img src="">
+          <span class="tooltip" id="15-tt">buger king </span>
+        </div>
+      </div>
+
+      <div id="options">
+        <button id="btn1" class="option-btn">Button (1)</button>
+        <button id="btn2" class="option-btn">Button (2)</button>
+        <button id="btn3" class="option-btn">Button (3)</button>
+        <button id="btn4" class="option-btn">Button (4)</button>
+        <button id="btn5" class="option-btn">Button (5)</button>
+        <button id="btn6" class="option-btn">Button (6)</button>
+        <button id="btn7" class="option-btn">Button (7)</button>
+        <button id="btn8" class="option-btn">Button (8)</button>
+      </div>
+
+    </main>
+    
+    <aside class="stats">
+
+      <h2 id="statstitle">Stats</h2>
+      <ul class="statlist">
+        <li class="stat"><h4><span>Health: </span><span id="health"></span><span> / </span><span id = "maxHealth"></span></h4></li>
+        <li class="stat"><h4><span>Speed: </span><span id="speed"></span><span> / </span><span id = "maxSpeed"></span></h4>
+        <li class="stat"><h4>Atk Damage: <span id="atkDmg"></span></h4></li>
+        <li class="stat"><h4>Money: <span id="money"></span></h4></li>
+        <li class="stat"><h4>X Position: <span id="xpos"></span></h4></li>
+        <li class="stat"><h4><span>Depth: </span><span id="depth"></span><span> / </span><span id = "maxDepth"></span></h4></li>
+        <li class="stat"><h4>Direction: <span id="direction"></span></h4></li>
+      </ul>
+      <h3>State: <span id="state"></span></h3>
+      <h3>Enemy Type: <span id="enemyType"></span></h3>
+      <!--<h3>Time: <span id="time"></span></h3>-->
+      
+    </aside>
+    <script src="app.js"></script>
+  </body>
+</html>

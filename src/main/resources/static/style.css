@@ -1,0 +1,212 @@
+#connect {
+  width: 100%;
+  font-size: 5vmin;
+  background-color: lightblue;
+  display: block;
+}
+
+main.background {
+  position:absolute;
+  top:0; bottom:0; left:0; width:70%;
+  overflow:auto;
+  box-shadow:inset 0 0 0 1px blue; 
+}
+
+main.background.depth1 {
+  background-image: url("sprites/bg1.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+main.background.depth2 {
+  background-image: url("sprites/bg2.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+main.background.depth3 {
+  
+}
+
+#sub {
+  display: flex;
+  height: 1vh;
+  justify-content: center;
+  align-items: center;
+}
+
+#sub img {
+  position: absolute;
+  top: 25%;
+  height: 50vmin;
+  max-widith: 100%;
+}
+
+#sub img.left {
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
+}
+
+#sub img.right {
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+}
+
+#sub img.battle {
+  height: 30vmin;
+  top: 40%;
+  left: 45%;
+}
+
+#enemy img.anchovy {
+  position: absolute;
+  height: 15vmin;
+  top: 20%;
+  left: 10%;
+}
+
+#enemy img.squid {
+  position: absolute;
+  height: 50vmin;
+  top: 15%;
+  left: 10%;
+}
+
+#enemy img.shark {
+  
+}
+
+aside.stats {
+  position:absolute;
+  top:0; bottom:0; left:70%; width:30%;
+  margin: 0 auto;
+  overflow:scroll;
+  box-shadow:inset 0 0 0 1px seagreen;
+  text-align: center;
+  background-color: darkslategray;
+}
+
+h2 {
+  top:5%;
+  font: 7vmin Andale Mono, monospace;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+}
+
+ul.statlist {
+  position: relative;
+  list-style: none;
+  text-align: center;
+  padding: 0;
+  /*overflow: hidden;*/
+}
+
+li.stat {
+  font: 5vmin Andale Mono, monospace;
+  color: white;
+  line-height: 50%
+}
+
+h5 {
+  font: 4vmin Andale Mono, monospace;
+  color: white;
+}
+
+h3 {
+  font: 4vmin Andale Mono, monospace;
+  color: white;
+}
+
+#options {
+  background-color: black;
+  position: absolute;
+  bottom: 1vmin;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 24% 24% 24% 24%;
+  grid-template-rows: 50% 50%;
+  justify-content: space-between;
+  gap: 1vmin;
+}
+
+button.option-btn {
+  background-color: springgreen;
+  color: black;
+  font-size: 4vmin;
+  width: 100%;
+  height: 10vmin;
+}
+
+#directionInput {
+  height: 50%;
+  width: 50%;
+  display: grid;
+  background-color: springgreen;
+  grid-template-columns: 30% 30% 30%;
+  grid-template-rows: 30% 30% 30%;
+  justify-content: space-evenly;
+  align-items: space-evenly;
+  vertical-align: middle;
+  position: absolute;
+  left: 25%;
+  top: 25%;
+}
+
+button.dirBtn {
+  width: 90%;
+}
+
+#inventory {
+  padding: 1% .5% .2% .5%;
+  height: 65%;
+  width: 75%;
+  display: grid;
+  gap: 3px;
+  grid-template-columns: 19% 19% 19% 19% 19%;
+  /*set to auto auto auto when adding square images*/
+  grid-template-rows: 32% 32% 32%;
+  justify-content: space-evenly;
+  align-items: space-evenly;
+  background-color: darkslategray;
+  position: absolute;
+  left: 12%;
+  top: 10%;
+}
+
+.inv-item {
+  background-color: slategray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: relative;
+}
+
+.inv-item img {
+  display: block;
+  max-width: auto;
+  max-height: 90%;
+}
+
+.tooltip {
+  visibility: hidden;
+  width: 5hmin;
+  background-color: darkslategray;
+  color: #fff;
+  text-align: center;
+  border-radius: 4px;
+  padding: 1%;
+  position: absolute;
+  z-index: 1;
+
+  bottom: 100%;
+  left: 50%;
+  margin-left: -2.5hmin;
+}
+
+.inv-item:hover .tooltip {
+  visibility: visible;
+}

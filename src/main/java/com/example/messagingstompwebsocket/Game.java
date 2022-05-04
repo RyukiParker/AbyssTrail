@@ -1,5 +1,10 @@
+package com.example.messagingstompwebsocket;
+
 import java.util.Scanner;
 import java.util.concurrent.ThreadLocalRandom;
+import java.util.concurrent.TimeUnit;
+import java.util.HashMap;
+import java.util.ArrayList;
 
 class Game {
 
@@ -11,30 +16,95 @@ class Game {
   int hours;
   ThreadLocalRandom random = ThreadLocalRandom.current();
 
+  // sgsnhoisnhgosdnhogsdg
+  Sub sub; // maybe make this a list of subs if adding multiplayer
+  int subType = 0;
+  String subName;
+  //Fort[] forts;
+  ArrayList<Fort> forts;
+
   Game() {
     System.out.println("Welcome to Abyss Trail!");
 
     ui = new UserInput();
     to = new TurnOptions();
     sr = new SpawnRate();
+
+    forts = new ArrayList<Fort>();
     //gui = new GUI(500, 500);
     
     hours = 0;
   }
 
-  public void play() {
-    // Game setup
-    /*
-    gui.loadImage("fish.jpg", 0, -200);
-    gui.loadImage("fish.jpg", 300, -100);
-    gui.loadImage("fish.jpg", 250, -50);
-    gui.setBackground("fish.jpg");
-    gui.showScreen();
-    */
+   public void setSubType(int type) {
+    this.subType = type;
+  }
+
+  public void setSubName(String name) {
+    this.subName = name;
+  }
+
+  public void createSub() {
+    sub = new Sub(this.subName, this.subType);
+    // for mp, this would just add to the list of subs
+    // the player would be assigned a number (that corresponds to list)
+  }
+
+  public String generateForts() {
+    Fort shallow1 = new Fort("A", random.nextInt(-20, 20), random.nextInt(4000, 6000));
+    Fort shallow2 = new Fort("B", random.nextInt(-20, 20), random.nextInt(8000, 10000));
+    Fort mid1 = new Fort("C", random.nextInt(-20, 20), random.nextInt(12000, 15000));
+
+    forts.add(shallow1);
+    forts.add(shallow2);
+    forts.add(mid1);
     
-    int subType = ui.askSubType();
-    System.out.print("Name your sub: ");
-    String subName = ui.readString();
+    return ("Generated Forts " + forts.get(0).getName() + ", " + forts.get(1).getName() + ", " + forts.get(2).getName());
+  }
+
+  public HashMap<String, Integer> getStats() {
+    return sub.getStats();
+  }
+
+  public String inputNum(int num) {
+    return ui.travelingInput(sub, num);
+    //sr.spawn(sub, sub.getYPos());
+  }
+
+  public void continueTravel() {
+    sub.travel();
+    sr.spawn(sub, sub.getYPos());
+  }
+
+  public void setNewSpeed(int newSpeed) {
+    sub.changeSpeed(newSpeed);
+  }
+
+  public void setNewDirection(int newDirection) {
+    sub.changeDirection(newDirection);
+  }
+
+  public String attack() {
+    return sub.attack(sub.target);
+  }
+
+  public HashMap<String, Integer> getInv() {
+    return sub.getInv();
+  }
+
+
+
+
+
+
+
+
+
+
+  // do not run for now
+  public void play() {
+    System.out.println("game.play() ran");
+    // Game setup
 
     Sub sub = new Sub(subName, subType);
     sub.showStatus();
@@ -50,8 +120,7 @@ class Game {
 
     boolean moveOn = false;
 
-    System.out.println("lore oops i dropped my keys better go get them");
-    // (maybe) Goal is to craft some item and plant it really deep in the ocean near the center of the planet so you can blow it up and destroy the aliens terrorizing your home planet
+    // (maybe) Goal is to craft some item and plant it really deep in the ocean near the center of the planet so you can blow it up 
 
     // Main game loop
     while (gameEnd == false) {
@@ -63,7 +132,7 @@ class Game {
         
         if (sub.isDocked == false && sub.inBattle == false) {
           to.showTravelingOptions();
-          moveOn = ui.travelingInput(sub);
+          //moveOn = ui.travelingInput(sub, 0);
           sr.spawn(sub, sub.getYPos());
         } else if (sub.isDocked == true) {
           to.showDockedOptions();
@@ -91,4 +160,6 @@ class Game {
     }
     System.out.println("\n\nGame Ended");
   }
+
+ 
 }

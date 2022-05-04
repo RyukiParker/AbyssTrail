@@ -40,7 +40,7 @@ class TurnOptions {
     System.out.println("2 | Sell <- no work yet");
     System.out.println("3 | View inventory");
     System.out.println("4 | Undock from fort");
-    System.out.println("5 | Craft Items");
+    System.out.println("5 | Craft Items <- no work yet");
     System.out.println("6 | Upgrade sub <- no work yet");
     System.out.println("7 | Repair sub <- no work yet");
     // buy or sell 
