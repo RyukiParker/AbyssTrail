@@ -81,6 +81,13 @@ main.background.depth3 {
   left: 10%;
 }
 
+#enemy img.brandon {
+  position: absolute;
+  height: 50vmin;
+  top: 15%;
+  left: 10%;
+}
+
 aside.stats {
   position:absolute;
   top:0; bottom:0; left:70%; width:30%;

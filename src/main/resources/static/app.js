@@ -110,12 +110,14 @@ function connect() {
           $("#" + key).text(value);
           showCorrectState(key, value);
 
+          // depth backgrounds
           if (key == "depth" && value < 6000) {
             $("main").removeClass().addClass("background depth1");
           } else if (key == "depth" && value >= 6000) {
             $("main").removeClass().addClass("background depth2");
           }
 
+          // enemy encounters
           if (key == "enemyType") {
             switch (value) {
               case 1: console.log("ANCHOVY!!!!");
@@ -136,6 +138,11 @@ function connect() {
                       $("#enemy img").removeClass().addClass("shark");
                       setTimeout(() => { $("#enemy").show(); }, 1);
                       break;
+              case 10: console.log("...");
+                      $("#announce").text("...");
+                      $("#enemy img").attr("src", "https://i1.sndcdn.com/avatars-ylM4tanwBXJZhjWb-X76mWw-t500x500.jpg");
+                      $("#enemy img").removeClass().addClass("brandon");
+                      setTimeout(() => { $("#enemy").show(); }, 1);
             }
           }
         })

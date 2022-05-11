@@ -21,7 +21,7 @@ class SpawnRate {
         startBattle(sub, 2);
       }
 
-    } else if (depth >= 6000 && depth < 12000) {
+    } else if (depth >= 6000 && depth < 10000) {
       chance = ThreadLocalRandom.current().nextInt(1, 50);
       if (chance >= 1 && chance < 3) {
         // squid (2/50 chance)
@@ -31,8 +31,8 @@ class SpawnRate {
         startBattle(sub, 3);
       }
 
-    } else if (depth >= 12000 && depth < 30000) {
-
+    } else if (depth >= 10000 && depth < 30000) {
+      startBattle(sub, 10);
     }
   }
 
