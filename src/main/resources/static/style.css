@@ -219,19 +219,22 @@ button.dirBtn {
 }
 
 .itemAmt {
-  background-color: darkblue;
+  height: 100%;
+  width: 100%;
   color: white;
   font: 4vmin Andale Mono, monospace;
-  align-self: end;
+  align-self: center;
   position: absolute;
 
   display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 5vmin;
+  justify-content: end;
+  align-items: flex-end;
+  text-align: center;
 }
 
 .itemAmt span {
-  padding: 5%;
-  width: 20px;
+  background-color: darkblue;
+  text-align: center;
+  padding: 2%;
+  width: 15%;
 }
