@@ -136,7 +136,10 @@ h3 {
 }
 
 button.option-btn {
-  background-color: springgreen;
+  background-color: palegreen;
+  border-color: limegreen;
+  border-style: solid;
+  border-width: medium;
   color: black;
   font-size: 4vmin;
   width: 100%;
@@ -150,16 +153,38 @@ button.option-btn {
   background-color: springgreen;
   grid-template-columns: 30% 30% 30%;
   grid-template-rows: 30% 30% 30%;
+  gap: 4%;
+  padding: 1.8% 0 1% 1.2%;
   justify-content: space-evenly;
   align-items: space-evenly;
-  vertical-align: middle;
   position: absolute;
   left: 25%;
-  top: 25%;
+  top: 20%;
 }
 
 button.dirBtn {
   width: 90%;
+  height: 100%;
+  text-align: center;
+  font-size: 10vmin;
+}
+
+input {
+  background-color: palegreen;
+  border-style: none none none solid;
+  border-color: limegreen;
+  border-width: thick;
+  font-size: 4vmin;
+  padding: 1%;
+}
+
+#send, #submitSpeed {
+  background-color: palegreen;
+  border-color: limegreen;
+  border-width: medium;
+  font-size: 4vmin;
+  border-style: solid;
+  padding: 1%;
 }
 
 #inventory {
