@@ -100,6 +100,12 @@ function connect() {
         console.log(attack.body);
         $("#announce").text(attack.body);
         requestStats();
+        
+        JSON.parse(attack.body, (key, value) => {
+          if (key == "health" && value <= 0) {
+            // dead
+          }
+        })
       })
 
       stompClient.subscribe('/topic/travel', function(travel) {
