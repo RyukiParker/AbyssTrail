@@ -86,6 +86,7 @@ function connect() {
         stompClient.subscribe('/topic/startGame', function (startGame) {
           displayTravelingOptions();
           console.log("Game initialized");
+          console.log(startGame.body);
         })
 
       stompClient.subscribe('/topic/speed', function (setNewSpeed) {

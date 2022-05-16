@@ -73,6 +73,9 @@ class Game {
 
   public void continueTravel() {
     sub.travel();
+    for (Fort fort : forts) {
+      fort.subInRange(sub);
+    } 
     sr.spawn(sub, sub.getYPos());
   }
 

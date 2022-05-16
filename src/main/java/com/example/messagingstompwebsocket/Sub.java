@@ -274,6 +274,12 @@ class Sub {
     }
     s.put("state", state);
 
+    if (this.canDock == false) {
+      s.put("canDock", 0);
+    } else {
+      s.put("canDock", 1);
+    }
+
     int enemyType = 0;
     if (this.target != null) {
       enemyType = this.target.getType();

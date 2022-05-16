@@ -130,6 +130,11 @@ h3 {
   color: white;
 }
 
+h6 {
+  font: 2vmin Andale Mono, monospace;
+  color: white;
+}
+
 #options {
   background-color: black;
   position: absolute;
