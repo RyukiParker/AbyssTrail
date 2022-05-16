@@ -290,8 +290,7 @@ input {
   display: flex;
   justify-content: center;
   align-items: center;
-  animation-name: death;
-  animation-duration: 4s;
+  animation: death 4s forwards;
 }
 
 #death-screen span {
@@ -300,13 +299,26 @@ input {
 }
 
 @keyframes death {
-  from {
+  0% {
     background-color: red;
+    color: black;
+    opacity: 0;
     height: 20vmin;
-    top: 50%;
+    top: 40%;
   }
-  to {
+
+  30% {
+    opacity: 1;
+    background-color: red;
+    color: black;
+    height: 20vmin;
+    top: 40%;
+  }
+  
+  100% {
+    opacity: 1;
     background-color: darkred;
+    color: white;
     height: 100%;
     top: 0%;
   }

@@ -11,6 +11,7 @@ $("#directionInput").hide();
 $("#enemy").hide();
 $("#inventory").hide();
 $("#sub").hide();
+$("#death-screen").hide();
 
 function setConnected(connected) {
     $("#connect").prop("disabled", connected);
@@ -54,6 +55,11 @@ function connect() {
           JSON.parse(getStats.body, (key, value) => {
             $("#" + key).text(value);
             showCorrectState(key, value);
+
+            if (key == "health" && value <= 0) {
+              $("#death-screen").show();
+            // dead
+            }
           })
         })
 
@@ -100,12 +106,6 @@ function connect() {
         console.log(attack.body);
         $("#announce").text(attack.body);
         requestStats();
-        
-        JSON.parse(attack.body, (key, value) => {
-          if (key == "health" && value <= 0) {
-            // dead
-          }
-        })
       })
 
       stompClient.subscribe('/topic/travel', function(travel) {
