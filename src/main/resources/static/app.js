@@ -117,6 +117,11 @@ function connect() {
           $("#" + key).text(value);
           showCorrectState(key, value);
 
+          // canDock
+          if (key == "canDock" && value == 1) {
+            $("#announce").text("Dockable fort nearby!")
+          }
+
           // depth backgrounds
           if (key == "depth" && value < 6000) {
             $("main").removeClass().addClass("background depth1");

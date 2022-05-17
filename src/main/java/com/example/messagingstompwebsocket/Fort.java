@@ -22,14 +22,17 @@ class Fort {
     this.inventory.add(new Item("Toolkit", 1250, 1250));
   }
 
-  public void subInRange(Sub sub) {
+  public boolean subInRange(Sub sub) {
     if (Math.abs(sub.getXPos() - this.xPos) <= 150 && Math.abs(sub.getYPos() - this.yPos) <= 150) {
       System.out.println("Sub is in range of Fort " + this.name + "\nFort is at (" + this.xPos + ", " + this.yPos + ")");
       sub.nearestFort = this;
       sub.canDock = true;
+      System.out.println("sub.canDock = " + sub.canDock);
+      return true;
     } else {
       sub.nearestFort = null;
       sub.canDock = false;
+      return false;
     }
   } 
 

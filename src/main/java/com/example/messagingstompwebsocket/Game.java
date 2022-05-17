@@ -73,8 +73,11 @@ class Game {
 
   public void continueTravel() {
     sub.travel();
+
+    boolean foundFort = false;
     for (Fort fort : forts) {
-      fort.subInRange(sub);
+      foundFort = fort.subInRange(sub);
+      if (foundFort == true) {break;}
     } 
     sr.spawn(sub, sub.getYPos());
   }
