@@ -98,6 +98,11 @@ class Game {
     return sub.getInv();
   }
 
+  public String dock() {
+    sub.isDocked = true;
+    return "Docked at " + sub.nearestFort.getName();
+  }
+
 
 
 

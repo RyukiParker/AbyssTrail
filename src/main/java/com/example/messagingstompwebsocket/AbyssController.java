@@ -111,6 +111,12 @@ public class AbyssController {
   public HashMap<String, Integer> viewInventory() throws Exception {
     return game.getInv();
   }
+
+  @MessageMapping("/dock")
+  @SendTo("/topic/dock")
+  public String dockAtFort() throws Exception {
+    return game.dock();
+  }
   
 }
 

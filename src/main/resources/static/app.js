@@ -3,6 +3,7 @@ var ongoing = false;
 
 // 0 = travel, 1 = battle, 2 = docked
 var currentState = 0;
+var subCanDock = false;
 
 $("#options").hide();
 $("#speedInput").hide();
@@ -109,6 +110,12 @@ function connect() {
         requestStats();
       })
 
+      stompClient.subscribe('/topic/dock', function(dock) {
+        console.log(dock.body);
+        $("#announce").text(dock.body);
+        requestStats();
+      })
+
       stompClient.subscribe('/topic/travel', function(travel) {
         //$("#state").text(currentState);
         //console.log("currentState: " + currentState);
@@ -119,7 +126,10 @@ function connect() {
 
           // canDock
           if (key == "canDock" && value == 1) {
+            subCanDock = 1;
             $("#announce").text("Dockable fort nearby!")
+          } else if (key == "canDock" && value == 0) {
+            subCanDock = 0;
           }
 
           // depth backgrounds
@@ -215,6 +225,10 @@ function requestStats() {
 
 function viewInventory() {
   stompClient.send("/app/inventory", {}, true);
+}
+
+function dockAtFort() {
+  stompClient.send("/app/dock", {}, true);
 }
 
 function sendNewSpeed() {
@@ -342,11 +356,27 @@ $(function () {
   $( "#btn3" ).click(function() { 
     //buttonClick(3) 
     switch (currentState) {
-      case 0: if ($("#inventory").is(':visible')) {
+      case 0: 
+      case 1:
+        if ($("#inventory").is(':visible')) {
                 $("#inventory").hide();
               } else {
                 $("#inventory").show();
                 viewInventory();
+              }
+              break;
+      case 2:
+              break;
+    }
+  });
+  
+  $( "#btn4" ).click(function() { 
+    //buttonClick(4) 
+    switch (currentState) {
+      case 0: if (subCanDock == true) {
+                dockAtFort();
+              } else {
+                $("#announce").text("There is no fort nearby to dock at.")
               }
               break;
       case 1:
@@ -355,8 +385,6 @@ $(function () {
               break;
     }
   });
-  
-  $( "#btn4" ).click(function() { buttonClick(4) });
   
   $( "#btn5" ).click(function() { buttonClick(5) });
   
