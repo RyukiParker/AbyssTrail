@@ -13,21 +13,23 @@ main.background {
 }
 
 main.background.depth1 {
-  background-image: url("sprites/bg1.png");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
+  background: url("sprites/bg1.png") no-repeat center / cover;
 }
 
 main.background.depth2 {
-  background-image: url("sprites/bg2.png");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
+  background: url("sprites/bg2.png") no-repeat center / cover;
 }
 
-main.background.depth3 {
-  
+main.background.biome3 {
+  background: url("sprites/bg3.png") no-repeat center / cover;
+}
+
+main.background.biome4 {
+  background: url("sprites/bg4.png") no-repeat center / cover;
+}
+
+main.background.biome5 {
+  background: url("sprites/bg5.png") no-repeat center / cover;
 }
 
 #sub {

@@ -130,11 +130,13 @@ function connect() {
             $("#announce").text("Dockable fort nearby!")
           } else if (key == "canDock" && value == 0) {
             subCanDock = 0;
+            $("#announce").text("")
           }
 
           // depth backgrounds
           if (key == "depth" && value < 6000) {
             $("main").removeClass().addClass("background depth1");
+            
           } else if (key == "depth" && value >= 6000) {
             $("main").removeClass().addClass("background depth2");
           }
@@ -143,20 +145,20 @@ function connect() {
           if (key == "enemyType") {
             switch (value) {
               case 1: console.log("ANCHOVY!!!!");
-                      $("#enemy img").attr("src", "sprites/anchovy.png");
+                      $("#enemy img").attr("src", "sprites/enemies/anchovy.png");
                       $("#enemy img").removeClass().addClass("anchovy");
                       $("#announce").text("Anchovy approaches!!");
                       setTimeout(() => { $("#enemy").show(); }, 1);
                       break;
               case 2: console.log("SQUID GAME!!!!");
-                      $("#enemy img").attr("src", "sprites/squid.png");
+                      $("#enemy img").attr("src", "sprites/enemies/squid.png");
                       $("#enemy img").removeClass().addClass("squid");    
                       $("#announce").text("Squid Game approaches!!");
                       setTimeout(() => { $("#enemy").show(); }, 1);
                       break;
               case 3: console.log("SHARK!!!!");
                       $("#announce").text("Shark approaches!!");
-                      $("#enemy img").attr("src", "sprites/shark.png");
+                      $("#enemy img").attr("src", "sprites/enemies/shark.png");
                       $("#enemy img").removeClass().addClass("shark");
                       setTimeout(() => { $("#enemy").show(); }, 1);
                       break;
