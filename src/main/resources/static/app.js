@@ -220,6 +220,7 @@ function showCorrectState(key, value) {
               break;
       case 2: displayDockedOptions();
               currentState = 2;
+              $("main").removeClass().addClass("background biome6");
               console.log("docked!!");
               break;
     }

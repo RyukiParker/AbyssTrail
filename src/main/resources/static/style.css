@@ -1,35 +1,32 @@
-#connect {
-  width: 100%;
-  font-size: 5vmin;
-  background-color: lightblue;
-  display: block;
-}
-
 main.background {
   position:absolute;
-  top:0; bottom:0; left:0; width:70%;
+  top:0; bottom: 0; left:0; width:70%;
   overflow:auto;
   box-shadow:inset 0 0 0 1px blue; 
 }
 
 main.background.depth1 {
-  background: url("sprites/bg1.png") no-repeat center / cover;
+  background: url("sprites/bgs/bg1.png") no-repeat center / cover;
 }
 
 main.background.depth2 {
-  background: url("sprites/bg2.png") no-repeat center / cover;
+  background: url("sprites/bgs/bg2.png") no-repeat center / cover;
 }
 
 main.background.biome3 {
-  background: url("sprites/bg3.png") no-repeat center / cover;
+  background: url("sprites/bgs/bg3.png") no-repeat center / cover;
 }
 
 main.background.biome4 {
-  background: url("sprites/bg4.png") no-repeat center / cover;
+  background: url("sprites/bgs/bg4.png") no-repeat center / cover;
 }
 
 main.background.biome5 {
-  background: url("sprites/bg5.png") no-repeat center / cover;
+  background: url("sprites/bgs/bg5.png") no-repeat center / cover;
+}
+
+main.background.biome6 {
+  background: url("sprites/enemies/HUH.png") no-repeat center / cover;
 }
 
 #sub {
@@ -141,8 +138,8 @@ h6 {
 #options {
   background-color: black;
   position: absolute;
-  bottom: 1vmin;
   width: 100%;
+  bottom: 1vmin;
   display: grid;
   grid-template-columns: 24% 24% 24% 24%;
   grid-template-rows: 50% 50%;
