@@ -5,6 +5,7 @@ var ongoing = false;
 var currentState = 0;
 var subCanDock = false;
 
+$("#connect").hide();
 $("#options").hide();
 $("#speedInput").hide();
 $("#submitSpeed").hide();
@@ -119,30 +120,33 @@ function connect() {
       stompClient.subscribe('/topic/travel', function(travel) {
         //$("#state").text(currentState);
         //console.log("currentState: " + currentState);
+
+        
+
+        // depth backgrounds
+        var stats = JSON.parse(travel.body);
+        if (stats.depth < 6000) {
+          if (stats.xpos >= 3000) {
+            console.log("shoujld be changing to BIOME4");
+            $("main").removeClass().addClass("background biome4");
+          } else {
+            $("main").removeClass().addClass("background depth1");
+          }
+        } else if (stats.depth >= 6000 && stats.depth < 12000) {
+          $("main").removeClass().addClass("background depth2");
+        } else if (stats.depth >= 12000) {
+          $("main").removeClass().addClass("background biome3");
+        }
+
+        
                               
         JSON.parse(travel.body, (key, value) => {
           $("#" + key).text(value);
           showCorrectState(key, value);
 
-          // canDock
-          if (key == "canDock" && value == 1) {
-            subCanDock = 1;
-            $("#announce").text("Dockable fort nearby!")
-          } else if (key == "canDock" && value == 0) {
-            subCanDock = 0;
-            $("#announce").text("")
-          }
-
-          // depth backgrounds
-          if (key == "depth" && value < 6000) {
-            $("main").removeClass().addClass("background depth1");
-            
-          } else if (key == "depth" && value >= 6000) {
-            $("main").removeClass().addClass("background depth2");
-          }
-
           // enemy encounters
           if (key == "enemyType") {
+            $("#announce").show();
             switch (value) {
               case 1: console.log("ANCHOVY!!!!");
                       $("#enemy img").attr("src", "sprites/enemies/anchovy.png");
@@ -169,6 +173,16 @@ function connect() {
                       setTimeout(() => { $("#enemy").show(); }, 1);
             }
           }
+
+           // canDock
+          if (key == "canDock" && value == 1) {
+            subCanDock = 1;
+            $("#announce").text("Dockable fort nearby!")
+          } else if (key == "canDock" && value == 0 && $("#announce").val() == "Dockable fort nearby!") {
+            subCanDock = 0;
+            $("#announce").text("");
+          }
+
         })
       })
       
@@ -293,14 +307,12 @@ function displayDockedOptions() {
 
 // Buttons on the page calls methods above
 $(function () {
+  connect(); 
+  $("#sub").show();
+  $("#settings").show();
+  
   $("form").on('submit', function (e) {
         e.preventDefault();
-  });
-  
-  $( "#connect" ).click(function() { 
-    connect(); 
-    $("#sub").show();
-    $("#settings").show();
   });
   
   $( "#disconnect" ).click(function() { disconnect(); });
@@ -357,18 +369,11 @@ $(function () {
   
   $( "#btn3" ).click(function() { 
     //buttonClick(3) 
-    switch (currentState) {
-      case 0: 
-      case 1:
-        if ($("#inventory").is(':visible')) {
-                $("#inventory").hide();
-              } else {
-                $("#inventory").show();
-                viewInventory();
-              }
-              break;
-      case 2:
-              break;
+    if ($("#inventory").is(':visible')) {
+      $("#inventory").hide();
+    } else {
+      $("#inventory").show();
+      viewInventory();
     }
   });
   
