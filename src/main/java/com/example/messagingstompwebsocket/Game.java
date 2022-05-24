@@ -79,7 +79,7 @@ class Game {
       foundFort = fort.subInRange(sub);
       if (foundFort == true) {break;}
     } 
-    sr.spawn(sub, sub.getYPos());
+    sr.spawn(sub, sub.getYPos(), sub.getXPos());
   }
 
   public void setNewSpeed(int newSpeed) {
@@ -149,7 +149,7 @@ class Game {
         if (sub.isDocked == false && sub.inBattle == false) {
           to.showTravelingOptions();
           //moveOn = ui.travelingInput(sub, 0);
-          sr.spawn(sub, sub.getYPos());
+          //sr.spawn(sub, sub.getYPos());
         } else if (sub.isDocked == true) {
           to.showDockedOptions();
           moveOn = ui.dockedInput(sub, sub.nearestFort);

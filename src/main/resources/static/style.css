@@ -66,23 +66,16 @@ main.background.fort {
   left: 10%;
 }
 
-#enemy img.squid {
+#enemy img.squid, #enemy img.shark, #enemy img.brandon {
   position: absolute;
   height: 50vmin;
   top: 15%;
   left: 10%;
 }
 
-#enemy img.shark {
+#enemy img.amogus {
   position: absolute;
-  height: 50vmin;
-  top: 15%;
-  left: 10%;
-}
-
-#enemy img.brandon {
-  position: absolute;
-  height: 50vmin;
+  height: 30vmin;
   top: 15%;
   left: 10%;
 }

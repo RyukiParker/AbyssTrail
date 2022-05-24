@@ -172,6 +172,12 @@ function connect() {
                       $("#enemy img").removeClass().addClass("shark");
                       setTimeout(() => { $("#enemy").show(); }, 1);
                       break;
+              case 4: console.log("AMOGUS!!!!");
+                      $("#announce").text("Amogus approaches!!");
+                      $("#enemy img").attr("src", "sprites/enemies/amongus.png");
+                      $("#enemy img").removeClass().addClass("amogus");
+                      setTimeout(() => { $("#enemy").show(); }, 1);
+                      break;
               case 10: console.log("...");
                       $("#announce").text("...");
                       $("#enemy img").attr("src", "https://i1.sndcdn.com/avatars-ylM4tanwBXJZhjWb-X76mWw-t500x500.jpg");
