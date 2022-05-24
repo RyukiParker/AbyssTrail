@@ -117,6 +117,12 @@ function connect() {
         requestStats();
       })
 
+      stompClient.subscribe('/topic/undock', function(undock) {
+        console.log(undock.body);
+        $("#announce").text(undock.body);
+        requestStats();
+      })
+
       stompClient.subscribe('/topic/travel', function(travel) {
         //$("#state").text(currentState);
         //console.log("currentState: " + currentState);
@@ -220,7 +226,7 @@ function showCorrectState(key, value) {
               break;
       case 2: displayDockedOptions();
               currentState = 2;
-              $("main").removeClass().addClass("background biome6");
+              $("main").removeClass().addClass("background fort");
               console.log("docked!!");
               break;
     }
@@ -246,6 +252,10 @@ function viewInventory() {
 
 function dockAtFort() {
   stompClient.send("/app/dock", {}, true);
+}
+
+function undock() {
+  stompClient.send("/app/undock", {}, true);
 }
 
 function sendNewSpeed() {
@@ -389,7 +399,7 @@ $(function () {
               break;
       case 1:
               break;
-      case 2:
+      case 2: undock();
               break;
     }
   });

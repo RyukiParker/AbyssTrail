@@ -103,6 +103,11 @@ class Game {
     return "Docked at " + sub.nearestFort.getName();
   }
 
+  public String undock() {
+    sub.isDocked = false;
+    return "Undocked!";
+  }
+
 
 
 

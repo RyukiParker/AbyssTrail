@@ -31,7 +31,7 @@ class SpawnRate {
           startBattle(sub, 3);
         }
 
-    } else if (depth >= 10000 && depth < 30000) {
+    } else if (depth >= 12000 && depth < 30000) {
         if (chance < 11) {
           // ... (10% chance)
           startBattle(sub, 10);

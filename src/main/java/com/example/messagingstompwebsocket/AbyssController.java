@@ -117,6 +117,12 @@ public class AbyssController {
   public String dockAtFort() throws Exception {
     return game.dock();
   }
+
+  @MessageMapping("/undock")
+  @SendTo("/topic/undock")
+  public String undock() throws Exception {
+    return game.undock();
+  }
   
 }
 

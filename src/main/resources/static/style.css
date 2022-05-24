@@ -25,8 +25,8 @@ main.background.biome5 {
   background: url("sprites/bgs/bg5.png") no-repeat center / cover;
 }
 
-main.background.biome6 {
-  background: url("sprites/enemies/HUH.png") no-repeat center / cover;
+main.background.fort {
+  background: url("sprites/bgs/fortbg.png") no-repeat center / cover;
 }
 
 #sub {
