@@ -16,10 +16,13 @@ class Fort {
     this.yPos = y;
 
     // quantity = 1 but it doesn't matter here because for now, forts will have infinite of each item available to buy
+    /*
     this.inventory.add(new Item("Battery", 125, 125));
     this.inventory.add(new Item("Steel", 200, 200));
     this.inventory.add(new Item("Medkit", 500, 500));
     this.inventory.add(new Item("Toolkit", 1250, 1250));
+    */
+    this.inventory.add(new Item("Repairkit", 500, 500));
   }
 
   public boolean subInRange(Sub sub) {
@@ -43,15 +46,17 @@ class Fort {
     }
   }
 
-  public void buyItem(Sub sub, int id) {
+  public String buyItem(Sub sub, int id) {
     // check if player can buy and subtract money
     Item item = this.inventory.get(id-1);
     if (sub.getMoney() >= item.getBuyPrice()) {
       sub.addItem(item);
       sub.spendMoney(item.getBuyPrice());
       System.out.println("Bought " + item.getName() + "!");
+      return "Bought " + item.getName() + "!";
     } else {
       System.out.println("Not enough money.");
+      return "Not enough money!";
     } 
   }
 

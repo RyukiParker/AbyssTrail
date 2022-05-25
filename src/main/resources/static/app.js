@@ -14,6 +14,7 @@ $("#enemy").hide();
 $("#inventory").hide();
 $("#sub").hide();
 $("#death-screen").hide();
+$("#fortItemList").hide();
 
 function setConnected(connected) {
     $("#connect").prop("disabled", connected);
@@ -81,6 +82,9 @@ function connect() {
                         $("#shark-tooth-tt").text("Shark Tooth");
                         $("#shark-tooth-amt").text(value);
                         break;
+              case "Repairkit": $("#inv-repairkit img").attr("src", "sprites/items/repairkit.png");
+                        $("#repairkit-tt").text("Repairkit");
+                        $("repairkit-amt").text(value);
             }
           })
         })
@@ -107,27 +111,30 @@ function connect() {
 
       stompClient.subscribe('/topic/attack', function(attack) {
         console.log(attack.body);
-        $("#announce").text(attack.body);
+        announce(attack.body);
         requestStats();
       })
 
       stompClient.subscribe('/topic/dock', function(dock) {
         console.log(dock.body);
-        $("#announce").text(dock.body);
+        announce(dock.body);
         requestStats();
       })
 
       stompClient.subscribe('/topic/undock', function(undock) {
         console.log(undock.body);
-        $("#announce").text(undock.body);
+        announce(undock.body);
+        requestStats();
+      })
+
+      stompClient.subscribe('/topic/buyItem', function(buyItem) {
+        announce(buyItem.body);
         requestStats();
       })
 
       stompClient.subscribe('/topic/travel', function(travel) {
         //$("#state").text(currentState);
         //console.log("currentState: " + currentState);
-
-        
 
         // depth backgrounds
         var stats = JSON.parse(travel.body);
@@ -143,7 +150,6 @@ function connect() {
         } else if (stats.depth >= 12000) {
           $("main").removeClass().addClass("background biome3");
         }
-
         
                               
         JSON.parse(travel.body, (key, value) => {
@@ -157,29 +163,29 @@ function connect() {
               case 1: console.log("ANCHOVY!!!!");
                       $("#enemy img").attr("src", "sprites/enemies/anchovy.png");
                       $("#enemy img").removeClass().addClass("anchovy");
-                      $("#announce").text("Anchovy approaches!!");
+                      announce("Anchovy approaches!!");
                       setTimeout(() => { $("#enemy").show(); }, 1);
                       break;
               case 2: console.log("SQUID GAME!!!!");
                       $("#enemy img").attr("src", "sprites/enemies/squid.png");
                       $("#enemy img").removeClass().addClass("squid");    
-                      $("#announce").text("Squid Game approaches!!");
+                      announce("Squid Game approaches!!");
                       setTimeout(() => { $("#enemy").show(); }, 1);
                       break;
               case 3: console.log("SHARK!!!!");
-                      $("#announce").text("Shark approaches!!");
+                      announce("Shark approaches!!");
                       $("#enemy img").attr("src", "sprites/enemies/shark.png");
                       $("#enemy img").removeClass().addClass("shark");
                       setTimeout(() => { $("#enemy").show(); }, 1);
                       break;
               case 4: console.log("AMOGUS!!!!");
-                      $("#announce").text("Amogus approaches!!");
+                      announce("Amogus approaches!!");
                       $("#enemy img").attr("src", "sprites/enemies/amongus.png");
                       $("#enemy img").removeClass().addClass("amogus");
                       setTimeout(() => { $("#enemy").show(); }, 1);
                       break;
               case 10: console.log("...");
-                      $("#announce").text("...");
+                      announce("...");
                       $("#enemy img").attr("src", "https://i1.sndcdn.com/avatars-ylM4tanwBXJZhjWb-X76mWw-t500x500.jpg");
                       $("#enemy img").removeClass().addClass("brandon");
                       setTimeout(() => { $("#enemy").show(); }, 1);
@@ -189,7 +195,7 @@ function connect() {
            // canDock
           if (key == "canDock" && value == 1) {
             subCanDock = 1;
-            $("#announce").text("Dockable fort nearby!")
+            announce("Dockable fort nearby!")
           } else if (key == "canDock" && value == 0 && $("#announce").val() == "Dockable fort nearby!") {
             subCanDock = 0;
             $("#announce").text("");
@@ -264,6 +270,10 @@ function undock() {
   stompClient.send("/app/undock", {}, true);
 }
 
+function buyItem(id) {
+  stompClient.send("/app/buyItem", {}, id);
+}
+
 function sendNewSpeed() {
   stompClient.send("/app/speed", {}, $("#speedInput").val());
 }
@@ -287,6 +297,10 @@ function startGame() {
 function buttonClick(num) {
   console.log("button (" + num + ") has been clicked");
   stompClient.send("/app/turnInput", {}, num);
+}
+
+function announce(input) {
+  $("#announce").text(input);
 }
 
 function displayTravelingOptions() {
@@ -364,10 +378,15 @@ $(function () {
               $("#submitSpeed").show();
               break;
       case 1: console.log("attacking!!!");
-              $("announce").text("Attacking!")
+              announce("Attacking!");
               attack();
               break;
-      case 2:
+      case 2: console.log("available items: ");
+              if ($("#fortItemList").is(':visible')) {
+                $("#fortItemList").hide();
+              } else {
+                $("#fortItemList").show();
+              }
               break;
     }
   });
@@ -400,7 +419,7 @@ $(function () {
       case 0: if (subCanDock == true) {
                 dockAtFort();
               } else {
-                $("#announce").text("There is no fort nearby to dock at.")
+                announce("There is no fort nearby to dock at.")
               }
               break;
       case 1:
@@ -428,7 +447,16 @@ $(function () {
   
   $( "#btn8" ).click(function() { buttonClick(8) });
 
-
+  // Fort Items
+  $("#fort-1").on( "click", function() {
+    // buy repairkit
+    buyItem(1);
+  });
+  $("#fort-2").on( "click", function() { });
+  $("#fort-3").on( "click", function() { });
+  $("#fort-4").on( "click", function() { });
+  $("#fort-5").on( "click", function() { });
+  $("#fort-6").on( "click", function() { });
   
   // Directions
 

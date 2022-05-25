@@ -123,6 +123,12 @@ public class AbyssController {
   public String undock() throws Exception {
     return game.undock();
   }
+
+  @MessageMapping("/buyItem")
+  @SendTo("/topic/buyItem")
+  public String buyItem(int id) throws Exception {
+    return game.buyItem(id);
+  }
   
 }
 

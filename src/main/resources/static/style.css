@@ -256,6 +256,13 @@ input {
   text-align: center;
 }
 
+.fort-item:hover .tooltip {
+  visibility: visible;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+
 .itemAmt {
   height: 100%;
   width: 100%;
@@ -275,6 +282,36 @@ input {
   text-align: center;
   padding: 2%;
   width: 15%;
+}
+
+#fortItemList {
+  padding: 1% .5% .3% .5%;
+  height: 45%;
+  width: 50%;
+  display: grid;
+  gap: 3px;
+  grid-template-columns: 32% 32% 32%;
+  grid-template-rows: 49% 49%;
+  justify-content: space-evenly;
+  align-items: space-evenly;
+  background-color: darkslategray;
+  position: absolute;
+  left: 24%;
+  top: 20%;
+}
+
+.fort-item {
+  background-color: slategray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.fort-item img {
+  display: block;
+  max-width: auto;
+  max-height: 90%;
 }
 
 #death-screen {

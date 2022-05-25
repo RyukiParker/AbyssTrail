@@ -108,6 +108,10 @@ class Game {
     return "Undocked!";
   }
 
+  public String buyItem(int id) {
+    return sub.nearestFort.buyItem(sub, id);
+  }
+
 
 
 
