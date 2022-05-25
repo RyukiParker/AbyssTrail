@@ -84,7 +84,7 @@ function connect() {
                         break;
               case "Repairkit": $("#inv-repairkit img").attr("src", "sprites/items/repairkit.png");
                         $("#repairkit-tt").text("Repairkit");
-                        $("repairkit-amt").text(value);
+                        $("#repairkit-amt").text(value);
             }
           })
         })
