@@ -396,6 +396,7 @@ $(function () {
                 $("#fortItemList").hide();
               } else {
                 $("#fortItemList").show();
+                
                 $("#speedInput").hide();
                 $("#submitSpeed").hide();
                 $("#directionInput").hide();
@@ -408,12 +409,16 @@ $(function () {
   $( "#btn2" ).click(function() { 
     //buttonClick(2) 
     switch (currentState) {
-      case 0: if ($("#directionInput").is(':visible'))
-              $("#directionInput").show();
-              $("#speedInput").hide();
-              $("#submitSpeed").hide();
-              $("#inventory").hide();
-              $("#fortItemList").hide();
+      case 0: if ($("#directionInput").is(':visible')) {
+                $("#directionInput").hide();
+              } else {
+                $("#directionInput").show();
+                
+                $("#speedInput").hide();
+                $("#submitSpeed").hide();
+                $("#inventory").hide();
+                $("#fortItemList").hide();
+              }
               break;
       case 1:
               break;
