@@ -300,7 +300,9 @@ function buttonClick(num) {
 }
 
 function announce(input) {
+  //$("#announce").removeClass();
   $("#announce").text(input);
+  //$("#announce").addClass("ann-anim");
 }
 
 function displayTravelingOptions() {
@@ -374,8 +376,16 @@ $(function () {
     //buttonClick(1) 
     switch (currentState) {
       case 0: console.log("changing speed");
+              if ($("#speedInput").is(':visible')) {
+                $("#speedInput").hide();
+                $("#submitSpeed").hide();
+              }
               $("#speedInput").show();
               $("#submitSpeed").show();
+        
+              $("#directionInput").hide();
+              $("#inventory").hide();
+              $("#fortItemList").hide();
               break;
       case 1: console.log("attacking!!!");
               announce("Attacking!");
@@ -386,6 +396,10 @@ $(function () {
                 $("#fortItemList").hide();
               } else {
                 $("#fortItemList").show();
+                $("#speedInput").hide();
+                $("#submitSpeed").hide();
+                $("#directionInput").hide();
+                $("#inventory").hide();
               }
               break;
     }
@@ -394,7 +408,12 @@ $(function () {
   $( "#btn2" ).click(function() { 
     //buttonClick(2) 
     switch (currentState) {
-      case 0: $("#directionInput").show();
+      case 0: if ($("#directionInput").is(':visible'))
+              $("#directionInput").show();
+              $("#speedInput").hide();
+              $("#submitSpeed").hide();
+              $("#inventory").hide();
+              $("#fortItemList").hide();
               break;
       case 1:
               break;
@@ -409,6 +428,10 @@ $(function () {
       $("#inventory").hide();
     } else {
       $("#inventory").show();
+      $("#speedInput").hide();
+      $("#submitSpeed").hide();
+      $("#directionInput").hide();
+      $("#fortItemList").hide();
       viewInventory();
     }
   });
