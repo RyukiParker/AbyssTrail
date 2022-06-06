@@ -196,9 +196,11 @@ function connect() {
           if (key == "canDock" && value == 1) {
             subCanDock = 1;
             announce("Dockable fort nearby!")
-          } else if (key == "canDock" && value == 0 && $("#announce").val() == "Dockable fort nearby!") {
+          } else if (key == "canDock" && value == 0) {
             subCanDock = 0;
-            $("#announce").text("");
+            if ($("#announce").val() == "Dockable fort nearby!") {
+              announce("");
+            }
           }
 
         })
@@ -446,8 +448,10 @@ $(function () {
     switch (currentState) {
       case 0: if (subCanDock == true) {
                 dockAtFort();
+                console.log("sub can dock so docking!")
               } else {
                 announce("There is no fort nearby to dock at.")
+                console.log("There is no fort nearby to dock at.")
               }
               break;
       case 1:
